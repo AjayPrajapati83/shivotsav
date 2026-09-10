@@ -6,8 +6,9 @@ export const DepartmentRow = memo(function DepartmentRow({ department }) {
     <div className="w-full">
       {/* Department Title */}
       <h3 
-        className="text-2xl md:text-3xl font-bold text-center mb-12"
+        className="text-2xl md:text-3xl font-bold text-center"
         style={{ 
+          marginBottom: '48px',
           background: 'linear-gradient(135deg, #FF5722 0%, #D4A843 100%)',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
@@ -20,7 +21,7 @@ export const DepartmentRow = memo(function DepartmentRow({ department }) {
       </h3>
 
       {/* Members Grid - Centered */}
-      <div className="flex justify-center w-full">
+      <div className="flex justify-center w-full" style={{ marginBottom: '48px' }}>
         <div className={`flex flex-wrap justify-center gap-6 md:gap-8 ${
           department.members.length === 4 
             ? 'max-w-7xl' 
