@@ -1,10 +1,11 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { X } from 'lucide-react';
 
 export function EventModal({ event, onClose }) {
   const modalRef = useRef(null);
   const scrollPositionRef = useRef(0);
   const contentRef = useRef(null);
+  const [isVisible, setIsVisible] = useState(false);
 
   // Body scroll lock
   useEffect(() => {
@@ -18,6 +19,9 @@ export function EventModal({ event, onClose }) {
       document.body.style.right = '0';
       document.body.style.overflow = 'hidden';
       document.body.style.width = '100%';
+      
+      // Trigger animation
+      setTimeout(() => setIsVisible(true), 10);
       
       return () => {
         document.body.style.position = '';
@@ -51,11 +55,18 @@ export function EventModal({ event, onClose }) {
   // Close on Escape
   useEffect(() => {
     const handleKey = (e) => {
-      if (e.key === 'Escape') onClose();
+      if (e.key === 'Escape') {
+        handleClose();
+      }
     };
     window.addEventListener('keydown', handleKey);
     return () => window.removeEventListener('keydown', handleKey);
   }, [onClose]);
+
+  const handleClose = () => {
+    setIsVisible(false);
+    setTimeout(() => onClose(), 200);
+  };
 
   if (!event) return null;
 
@@ -63,155 +74,198 @@ export function EventModal({ event, onClose }) {
 
   return (
     <div
-      className="fixed inset-0 z-[9999] flex items-center justify-center p-4"
+      className="fixed inset-0 z-[9999]"
       style={{
-        backgroundColor: 'rgba(0, 0, 0, 0.85)',
-        overflowY: 'auto',
-        WebkitOverflowScrolling: 'touch',
+        backgroundColor: `rgba(0, 0, 0, ${isVisible ? '0.85' : '0'})`,
+        transition: 'background-color 0.3s ease',
       }}
       onClick={(e) => {
         if (e.target === e.currentTarget) {
-          onClose();
+          handleClose();
         }
       }}
     >
+      {/* Desktop: Centered Modal | Mobile: Bottom Sheet */}
       <div
-        ref={modalRef}
-        className="relative w-full max-w-3xl my-4 sm:my-6"
+        className="fixed md:inset-0 md:flex md:items-center md:justify-center md:p-4"
         style={{
-          maxHeight: 'calc(100vh - 32px)',
+          bottom: 0,
+          left: 0,
+          right: 0,
+          top: 'auto',
         }}
-        onClick={(e) => e.stopPropagation()}
       >
-        {/* Close Button */}
-        <button
-          onClick={onClose}
-          className="absolute -top-3 -right-3 w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform z-50 shadow-2xl"
-          style={{
-            background: 'linear-gradient(135deg, #ff4444, #cc0000)',
-            border: '2px solid rgba(255, 255, 255, 0.3)',
-          }}
-          aria-label="Close dialog"
-        >
-          <X className="w-5 h-5 sm:w-6 sm:h-6" strokeWidth={3} />
-        </button>
-
-        {/* Modal Content */}
         <div
-          ref={contentRef}
-          className="rounded-2xl overflow-hidden"
+          ref={modalRef}
+          className="relative w-full md:max-w-3xl md:my-6"
           style={{
-            background: 'linear-gradient(180deg, rgb(30, 30, 55) 0%, rgb(20, 20, 40) 100%)',
-            border: '2px solid rgba(249, 115, 22, 0.3)',
-            boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.8)',
-            maxHeight: 'calc(100vh - 32px)',
-            overflowY: 'auto',
-            overflowX: 'hidden',
-            scrollBehavior: 'smooth',
+            transform: isVisible 
+              ? 'translateY(0)' 
+              : 'translateY(100%)',
+            transition: 'transform 0.3s cubic-bezier(0.32, 0.72, 0, 1)',
+            maxHeight: '90vh',
           }}
+          onClick={(e) => e.stopPropagation()}
         >
-          {/* Header Section */}
+          {/* Modal Content */}
           <div
+            ref={contentRef}
+            className="rounded-t-3xl md:rounded-2xl overflow-hidden"
             style={{
-              background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.12), rgba(249, 115, 22, 0.05))',
-              borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-              padding: 'clamp(16px, 4vw, 24px)',
+              background: 'linear-gradient(180deg, rgb(30, 30, 55) 0%, rgb(20, 20, 40) 100%)',
+              border: '2px solid rgba(249, 115, 22, 0.3)',
+              borderBottom: 'none',
+              boxShadow: '0 -10px 50px -12px rgba(0, 0, 0, 0.8)',
+              maxHeight: '90vh',
+              overflowY: 'auto',
+              overflowX: 'hidden',
+              scrollBehavior: 'smooth',
+              WebkitOverflowScrolling: 'touch',
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: 'clamp(10px, 2.5vw, 16px)' }}>
-              {/* Icon */}
-              <div style={{ fontSize: 'clamp(40px, 8vw, 52px)', lineHeight: 1, flexShrink: 0 }}>
-                {event.categoryIcon}
-              </div>
-              
-              {/* Title Content */}
-              <div style={{ flex: 1, paddingRight: 'clamp(28px, 6vw, 40px)' }}>
-                {/* Event Name */}
-                <h2 
-                  style={{
-                    fontSize: 'clamp(20px, 4vw, 28px)',
-                    fontWeight: 700,
-                    color: '#ffffff',
-                    marginBottom: '8px',
-                    lineHeight: 1.2,
-                    letterSpacing: '-0.02em',
+            {/* Drag Handle (Mobile only) */}
+            <div 
+              className="md:hidden flex justify-center pt-3 pb-1"
+              style={{
+                background: 'linear-gradient(180deg, rgb(30, 30, 55) 0%, rgba(30, 30, 55, 0.95) 100%)',
+              }}
+            >
+              <div 
+                style={{
+                  width: '40px',
+                  height: '4px',
+                  borderRadius: '2px',
+                  backgroundColor: 'rgba(255, 255, 255, 0.3)',
+                }}
+              />
+            </div>
+
+            {/* Close Button (Desktop) */}
+            <button
+              onClick={handleClose}
+              className="hidden md:flex absolute top-4 right-4 w-10 h-10 rounded-full items-center justify-center text-white hover:scale-110 transition-transform z-50 shadow-lg"
+              style={{
+                background: 'rgba(255, 68, 68, 0.9)',
+                border: '2px solid rgba(255, 255, 255, 0.2)',
+              }}
+              aria-label="Close dialog"
+            >
+              <X className="w-5 h-5" strokeWidth={3} />
+            </button>
+
+            {/* Header Section */}
+            <div
+              style={{
+                background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.08), rgba(249, 115, 22, 0.03))',
+                borderBottom: '1px solid rgba(255, 255, 255, 0.06)',
+                padding: '20px',
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'flex-start', gap: '14px' }}>
+                {/* Icon */}
+                <div 
+                  style={{ 
+                    fontSize: '48px', 
+                    lineHeight: 1, 
+                    flexShrink: 0,
+                    filter: 'drop-shadow(0 2px 8px rgba(249, 115, 22, 0.3))',
                   }}
                 >
-                  {event.name}
-                </h2>
+                  {event.categoryIcon}
+                </div>
                 
-                {/* Themed Name */}
-                <p 
-                  style={{
-                    fontSize: 'clamp(13px, 2.5vw, 16px)',
-                    fontWeight: 500,
-                    fontStyle: 'italic',
-                    color: '#f97316',
-                    marginBottom: '12px',
-                  }}
-                >
-                  {event.themeName}
-                </p>
-                
-                {/* Badges */}
-                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
-                  <span
+                {/* Title Content */}
+                <div style={{ flex: 1, paddingRight: '8px' }}>
+                  {/* Event Name */}
+                  <h2 
                     style={{
-                      fontSize: '11px',
+                      fontSize: '22px',
                       fontWeight: 700,
-                      padding: '5px 12px',
-                      borderRadius: '6px',
-                      backgroundColor: 'rgba(249, 115, 22, 0.2)',
-                      color: '#f97316',
-                      textTransform: 'uppercase',
-                      letterSpacing: '0.05em',
+                      color: '#ffffff',
+                      marginBottom: '6px',
+                      lineHeight: 1.3,
+                      letterSpacing: '-0.01em',
                     }}
                   >
-                    {event.category.split(' ')[0]}
-                  </span>
-                  {event.day && (
-                    <span 
+                    {event.name}
+                  </h2>
+                  
+                  {/* Themed Name */}
+                  <p 
+                    style={{
+                      fontSize: '14px',
+                      fontWeight: 500,
+                      fontStyle: 'italic',
+                      color: '#fb923c',
+                      marginBottom: '12px',
+                      lineHeight: 1.4,
+                    }}
+                  >
+                    {event.themeName}
+                  </p>
+                  
+                  {/* Badges */}
+                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
+                    <span
                       style={{
-                        fontSize: '11px',
-                        fontWeight: 500,
-                        padding: '5px 12px',
+                        fontSize: '10px',
+                        fontWeight: 700,
+                        padding: '6px 10px',
                         borderRadius: '6px',
-                        backgroundColor: 'rgba(255, 255, 255, 0.06)',
-                        color: 'rgba(255, 255, 255, 0.85)',
+                        backgroundColor: 'rgba(249, 115, 22, 0.15)',
+                        border: '1px solid rgba(249, 115, 22, 0.3)',
+                        color: '#f97316',
+                        textTransform: 'uppercase',
+                        letterSpacing: '0.05em',
                       }}
                     >
-                      📅 Day {event.day}
+                      {event.category.split(' ')[0]}
                     </span>
-                  )}
-                  <span 
-                    style={{
-                      fontSize: '11px',
-                      fontWeight: 500,
-                      padding: '5px 12px',
-                      borderRadius: '6px',
-                      backgroundColor: 'rgba(255, 255, 255, 0.06)',
-                      color: 'rgba(255, 255, 255, 0.85)',
-                    }}
-                  >
-                    {event.tier}
-                  </span>
+                    {event.day && (
+                      <span 
+                        style={{
+                          fontSize: '10px',
+                          fontWeight: 600,
+                          padding: '6px 10px',
+                          borderRadius: '6px',
+                          backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                          border: '1px solid rgba(255, 255, 255, 0.1)',
+                          color: 'rgba(255, 255, 255, 0.8)',
+                        }}
+                      >
+                        📅 Day {event.day}
+                      </span>
+                    )}
+                    <span 
+                      style={{
+                        fontSize: '10px',
+                        fontWeight: 600,
+                        padding: '6px 10px',
+                        borderRadius: '6px',
+                        backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                        border: '1px solid rgba(255, 255, 255, 0.1)',
+                        color: 'rgba(255, 255, 255, 0.8)',
+                      }}
+                    >
+                      {event.tier}
+                    </span>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* Body Section */}
-          <div style={{ padding: 'clamp(20px, 4vw, 28px)' }}>
-            {/* Two Column Layout */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px', marginBottom: '24px' }}>
-              {/* Registration Fee */}
-              <div>
+            {/* Body Section */}
+            <div style={{ padding: '20px 20px 24px' }}>
+              {/* Registration Fee Card */}
+              <div style={{ marginBottom: '16px' }}>
                 <h3 
                   style={{
-                    fontSize: '14px',
+                    fontSize: '12px',
                     fontWeight: 700,
-                    color: '#ffffff',
-                    marginBottom: '12px',
+                    color: 'rgba(255, 255, 255, 0.6)',
+                    marginBottom: '10px',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.08em',
                     display: 'flex',
                     alignItems: 'center',
                     gap: '6px',
@@ -221,18 +275,19 @@ export function EventModal({ event, onClose }) {
                 </h3>
                 <div 
                   style={{
-                    padding: '18px',
-                    borderRadius: '10px',
-                    backgroundColor: 'rgba(40, 40, 70, 0.5)',
-                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                    padding: '16px 18px',
+                    borderRadius: '12px',
+                    backgroundColor: 'rgba(249, 115, 22, 0.08)',
+                    border: '1px solid rgba(249, 115, 22, 0.2)',
                   }}
                 >
                   <p 
                     style={{
-                      fontSize: '28px',
+                      fontSize: '32px',
                       fontWeight: 700,
                       color: '#f97316',
                       margin: 0,
+                      lineHeight: 1,
                     }}
                   >
                     {event.isPaid && event.price ? event.price : 'Free'}
@@ -240,14 +295,16 @@ export function EventModal({ event, onClose }) {
                 </div>
               </div>
 
-              {/* Description */}
-              <div>
+              {/* Description Card */}
+              <div style={{ marginBottom: '16px' }}>
                 <h3 
                   style={{
-                    fontSize: '14px',
+                    fontSize: '12px',
                     fontWeight: 700,
-                    color: '#ffffff',
-                    marginBottom: '12px',
+                    color: 'rgba(255, 255, 255, 0.6)',
+                    marginBottom: '10px',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.08em',
                     display: 'flex',
                     alignItems: 'center',
                     gap: '6px',
@@ -257,9 +314,9 @@ export function EventModal({ event, onClose }) {
                 </h3>
                 <div 
                   style={{
-                    padding: '18px',
-                    borderRadius: '10px',
-                    backgroundColor: 'rgba(40, 40, 70, 0.5)',
+                    padding: '16px 18px',
+                    borderRadius: '12px',
+                    backgroundColor: 'rgba(255, 255, 255, 0.03)',
                     border: '1px solid rgba(255, 255, 255, 0.08)',
                   }}
                 >
@@ -267,7 +324,7 @@ export function EventModal({ event, onClose }) {
                     style={{
                       fontSize: '14px',
                       color: 'rgba(255, 255, 255, 0.85)',
-                      lineHeight: 1.6,
+                      lineHeight: 1.7,
                       margin: 0,
                     }}
                   >
@@ -275,99 +332,128 @@ export function EventModal({ event, onClose }) {
                   </p>
                 </div>
               </div>
-            </div>
 
-            {/* Rules Section - Full Width */}
-            <div>
-              <h3 
-                style={{
-                  fontSize: '14px',
-                  fontWeight: 700,
-                  color: '#ffffff',
-                  marginBottom: '12px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: '6px',
-                }}
-              >
-                📋 Rules & Guidelines
-              </h3>
-              <div 
-                style={{
-                  padding: '18px',
-                  borderRadius: '10px',
-                  backgroundColor: 'rgba(40, 40, 70, 0.5)',
-                  border: '1px solid rgba(255, 255, 255, 0.08)',
-                }}
-              >
-                {event.rules && event.rules.length > 0 ? (
-                  <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px' }}>
-                    {event.rules.map((rule, index) => (
-                      <li 
-                        key={index} 
-                        style={{
-                          fontSize: '14px',
-                          color: 'rgba(255, 255, 255, 0.85)',
-                          lineHeight: 1.6,
-                          display: 'flex',
-                          alignItems: 'flex-start',
-                          gap: '10px',
-                        }}
-                      >
-                        <span style={{ fontSize: '18px', fontWeight: 700, color: '#f97316', flexShrink: 0, marginTop: '1px' }}>
-                          •
-                        </span>
-                        <span style={{ flex: 1 }}>{rule}</span>
-                      </li>
-                    ))}
-                  </ul>
-                ) : (
-                  <p style={{ fontSize: '14px', color: 'rgba(255, 255, 255, 0.5)', fontStyle: 'italic', margin: 0 }}>
-                    Coming Soon
-                  </p>
-                )}
+              {/* Rules Section */}
+              <div>
+                <h3 
+                  style={{
+                    fontSize: '12px',
+                    fontWeight: 700,
+                    color: 'rgba(255, 255, 255, 0.6)',
+                    marginBottom: '10px',
+                    textTransform: 'uppercase',
+                    letterSpacing: '0.08em',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '6px',
+                  }}
+                >
+                  📋 Rules & Guidelines
+                </h3>
+                <div 
+                  style={{
+                    padding: '16px 18px',
+                    borderRadius: '12px',
+                    backgroundColor: 'rgba(255, 255, 255, 0.03)',
+                    border: '1px solid rgba(255, 255, 255, 0.08)',
+                  }}
+                >
+                  {event.rules && event.rules.length > 0 ? (
+                    <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                      {event.rules.map((rule, index) => (
+                        <li 
+                          key={index} 
+                          style={{
+                            fontSize: '13px',
+                            color: 'rgba(255, 255, 255, 0.8)',
+                            lineHeight: 1.6,
+                            display: 'flex',
+                            alignItems: 'flex-start',
+                            gap: '10px',
+                          }}
+                        >
+                          <span 
+                            style={{ 
+                              fontSize: '16px', 
+                              fontWeight: 700, 
+                              color: '#f97316', 
+                              flexShrink: 0,
+                              marginTop: '1px',
+                            }}
+                          >
+                            •
+                          </span>
+                          <span style={{ flex: 1 }}>{rule}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  ) : (
+                    <p style={{ fontSize: '13px', color: 'rgba(255, 255, 255, 0.4)', fontStyle: 'italic', margin: 0 }}>
+                      Rules will be announced soon
+                    </p>
+                  )}
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Footer - Registration Button */}
-          <div 
-            style={{
-              padding: 'clamp(16px, 3vw, 20px) clamp(20px, 4vw, 28px)',
-              borderTop: '1px solid rgba(255, 255, 255, 0.08)',
-              background: 'rgba(0, 0, 0, 0.2)',
-            }}
-          >
-            <a
-              href={formUrl}
-              target="_blank"
-              rel="noopener noreferrer"
+            {/* Footer - Registration Button */}
+            <div 
               style={{
-                display: 'block',
-                width: '100%',
-                padding: '14px 20px',
-                borderRadius: '10px',
-                fontWeight: 700,
-                fontSize: '16px',
-                textAlign: 'center',
-                color: '#ffffff',
-                textDecoration: 'none',
-                background: 'linear-gradient(135deg, #f97316, #ea580c)',
-                boxShadow: '0 8px 20px -5px rgba(249, 115, 22, 0.5)',
-                transition: 'all 0.2s ease',
-                cursor: 'pointer',
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow = '0 12px 28px -5px rgba(249, 115, 22, 0.6)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 8px 20px -5px rgba(249, 115, 22, 0.5)';
+                padding: '16px 20px 20px',
+                borderTop: '1px solid rgba(255, 255, 255, 0.06)',
+                background: 'rgba(0, 0, 0, 0.15)',
               }}
             >
-              🎮 Register for {event.name}
-            </a>
+              {/* Close button for mobile */}
+              <button
+                onClick={handleClose}
+                className="md:hidden w-full mb-3"
+                style={{
+                  padding: '13px 20px',
+                  borderRadius: '10px',
+                  fontWeight: 600,
+                  fontSize: '15px',
+                  textAlign: 'center',
+                  color: 'rgba(255, 255, 255, 0.7)',
+                  backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  cursor: 'pointer',
+                  transition: 'all 0.2s ease',
+                }}
+              >
+                Close
+              </button>
+              
+              {/* Register button */}
+              <a
+                href={formUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: 'block',
+                  width: '100%',
+                  padding: '15px 20px',
+                  borderRadius: '10px',
+                  fontWeight: 700,
+                  fontSize: '15px',
+                  textAlign: 'center',
+                  color: '#ffffff',
+                  textDecoration: 'none',
+                  background: 'linear-gradient(135deg, #f97316, #ea580c)',
+                  boxShadow: '0 4px 16px -2px rgba(249, 115, 22, 0.4)',
+                  transition: 'all 0.2s ease',
+                  cursor: 'pointer',
+                }}
+                onTouchStart={(e) => {
+                  e.currentTarget.style.transform = 'scale(0.98)';
+                }}
+                onTouchEnd={(e) => {
+                  e.currentTarget.style.transform = 'scale(1)';
+                }}
+              >
+                🎮 Register Now
+              </a>
+            </div>
           </div>
         </div>
       </div>

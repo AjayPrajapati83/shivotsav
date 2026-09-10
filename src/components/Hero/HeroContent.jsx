@@ -41,7 +41,7 @@ export function HeroContent() {
       </div>
 
       {/* Date & Venue pills */}
-      <div style={{ marginTop: '5px' }} className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 sm:gap-6 mb-16 w-full px-4">
+      <div style={{ marginTop: '5px', marginBottom: '20px' }} className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 sm:gap-6 w-full px-4">
         <div 
           className="flex flex-shrink-0 items-center justify-center gap-3 rounded-full text-slate-100 shadow-lg backdrop-blur-md bg-white/5 border border-gold-500/30 w-max max-w-full transition-colors hover:bg-white/10"
           style={{ padding: '1rem 2.5rem' }}
@@ -63,7 +63,7 @@ export function HeroContent() {
       </div>
 
       {/* Managed by ESSSQUBE EVENTS */}
-      <p className="text-sm sm:text-base text-slate-400 mb-24 tracking-wider">
+      <p className="text-sm sm:text-base text-slate-400 mb-24 tracking-wider" style={{ marginTop: '20px' }}>
         Managed by{' '}
         <a
           href="https://www.essqube.in/"
@@ -77,7 +77,6 @@ export function HeroContent() {
 
       {/* Scroll indicator */}
       <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60">
-        <span className="text-xs text-slate-400 tracking-widest uppercase">Scroll</span>
         <ChevronDown className="w-5 h-5 text-gold-400 animate-bounce" />
       </div>
     </div>
