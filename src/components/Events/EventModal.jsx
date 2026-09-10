@@ -77,23 +77,23 @@ export function EventModal({ event, onClose }) {
     >
       <div
         ref={modalRef}
-        className="relative w-full max-w-4xl my-8"
+        className="relative w-full max-w-3xl my-4 sm:my-6"
         style={{
-          maxHeight: 'calc(100vh - 64px)',
+          maxHeight: 'calc(100vh - 32px)',
         }}
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute -top-4 -right-4 w-12 h-12 rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform z-50 shadow-2xl"
+          className="absolute -top-3 -right-3 w-10 h-10 sm:w-11 sm:h-11 rounded-full flex items-center justify-center text-white hover:scale-110 transition-transform z-50 shadow-2xl"
           style={{
             background: 'linear-gradient(135deg, #ff4444, #cc0000)',
-            border: '3px solid rgba(255, 255, 255, 0.3)',
+            border: '2px solid rgba(255, 255, 255, 0.3)',
           }}
           aria-label="Close dialog"
         >
-          <X className="w-7 h-7" strokeWidth={3} />
+          <X className="w-5 h-5 sm:w-6 sm:h-6" strokeWidth={3} />
         </button>
 
         {/* Modal Content */}
@@ -104,7 +104,7 @@ export function EventModal({ event, onClose }) {
             background: 'linear-gradient(180deg, rgb(30, 30, 55) 0%, rgb(20, 20, 40) 100%)',
             border: '2px solid rgba(249, 115, 22, 0.3)',
             boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.8)',
-            maxHeight: 'calc(100vh - 64px)',
+            maxHeight: 'calc(100vh - 32px)',
             overflowY: 'auto',
             overflowX: 'hidden',
             scrollBehavior: 'smooth',
@@ -115,24 +115,24 @@ export function EventModal({ event, onClose }) {
             style={{
               background: 'linear-gradient(135deg, rgba(249, 115, 22, 0.12), rgba(249, 115, 22, 0.05))',
               borderBottom: '1px solid rgba(255, 255, 255, 0.08)',
-              padding: 'clamp(20px, 5vw, 32px)',
+              padding: 'clamp(16px, 4vw, 24px)',
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'flex-start', gap: 'clamp(12px, 3vw, 20px)' }}>
+            <div style={{ display: 'flex', alignItems: 'flex-start', gap: 'clamp(10px, 2.5vw, 16px)' }}>
               {/* Icon */}
-              <div style={{ fontSize: 'clamp(48px, 10vw, 64px)', lineHeight: 1, flexShrink: 0 }}>
+              <div style={{ fontSize: 'clamp(40px, 8vw, 52px)', lineHeight: 1, flexShrink: 0 }}>
                 {event.categoryIcon}
               </div>
               
               {/* Title Content */}
-              <div style={{ flex: 1, paddingRight: 'clamp(32px, 8vw, 48px)' }}>
+              <div style={{ flex: 1, paddingRight: 'clamp(28px, 6vw, 40px)' }}>
                 {/* Event Name */}
                 <h2 
                   style={{
-                    fontSize: 'clamp(24px, 5vw, 32px)',
+                    fontSize: 'clamp(20px, 4vw, 28px)',
                     fontWeight: 700,
                     color: '#ffffff',
-                    marginBottom: '12px',
+                    marginBottom: '8px',
                     lineHeight: 1.2,
                     letterSpacing: '-0.02em',
                   }}
@@ -143,11 +143,11 @@ export function EventModal({ event, onClose }) {
                 {/* Themed Name */}
                 <p 
                   style={{
-                    fontSize: 'clamp(14px, 3vw, 18px)',
+                    fontSize: 'clamp(13px, 2.5vw, 16px)',
                     fontWeight: 500,
                     fontStyle: 'italic',
                     color: '#f97316',
-                    marginBottom: '16px',
+                    marginBottom: '12px',
                   }}
                 >
                   {event.themeName}
@@ -157,9 +157,9 @@ export function EventModal({ event, onClose }) {
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
                   <span
                     style={{
-                      fontSize: '12px',
+                      fontSize: '11px',
                       fontWeight: 700,
-                      padding: '6px 14px',
+                      padding: '5px 12px',
                       borderRadius: '6px',
                       backgroundColor: 'rgba(249, 115, 22, 0.2)',
                       color: '#f97316',
@@ -172,9 +172,9 @@ export function EventModal({ event, onClose }) {
                   {event.day && (
                     <span 
                       style={{
-                        fontSize: '12px',
+                        fontSize: '11px',
                         fontWeight: 500,
-                        padding: '6px 14px',
+                        padding: '5px 12px',
                         borderRadius: '6px',
                         backgroundColor: 'rgba(255, 255, 255, 0.06)',
                         color: 'rgba(255, 255, 255, 0.85)',
@@ -185,9 +185,9 @@ export function EventModal({ event, onClose }) {
                   )}
                   <span 
                     style={{
-                      fontSize: '12px',
+                      fontSize: '11px',
                       fontWeight: 500,
-                      padding: '6px 14px',
+                      padding: '5px 12px',
                       borderRadius: '6px',
                       backgroundColor: 'rgba(255, 255, 255, 0.06)',
                       color: 'rgba(255, 255, 255, 0.85)',
@@ -201,35 +201,35 @@ export function EventModal({ event, onClose }) {
           </div>
 
           {/* Body Section */}
-          <div style={{ padding: 'clamp(24px, 5vw, 32px)' }}>
+          <div style={{ padding: 'clamp(20px, 4vw, 28px)' }}>
             {/* Two Column Layout */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '32px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px', marginBottom: '24px' }}>
               {/* Registration Fee */}
               <div>
                 <h3 
                   style={{
-                    fontSize: '16px',
+                    fontSize: '14px',
                     fontWeight: 700,
                     color: '#ffffff',
-                    marginBottom: '16px',
+                    marginBottom: '12px',
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '8px',
+                    gap: '6px',
                   }}
                 >
                   💰 Registration Fee
                 </h3>
                 <div 
                   style={{
-                    padding: '24px',
-                    borderRadius: '12px',
+                    padding: '18px',
+                    borderRadius: '10px',
                     backgroundColor: 'rgba(40, 40, 70, 0.5)',
                     border: '1px solid rgba(255, 255, 255, 0.08)',
                   }}
                 >
                   <p 
                     style={{
-                      fontSize: '32px',
+                      fontSize: '28px',
                       fontWeight: 700,
                       color: '#f97316',
                       margin: 0,
@@ -244,30 +244,30 @@ export function EventModal({ event, onClose }) {
               <div>
                 <h3 
                   style={{
-                    fontSize: '16px',
+                    fontSize: '14px',
                     fontWeight: 700,
                     color: '#ffffff',
-                    marginBottom: '16px',
+                    marginBottom: '12px',
                     display: 'flex',
                     alignItems: 'center',
-                    gap: '8px',
+                    gap: '6px',
                   }}
                 >
                   📝 Description
                 </h3>
                 <div 
                   style={{
-                    padding: '24px',
-                    borderRadius: '12px',
+                    padding: '18px',
+                    borderRadius: '10px',
                     backgroundColor: 'rgba(40, 40, 70, 0.5)',
                     border: '1px solid rgba(255, 255, 255, 0.08)',
                   }}
                 >
                   <p 
                     style={{
-                      fontSize: '15px',
+                      fontSize: '14px',
                       color: 'rgba(255, 255, 255, 0.85)',
-                      lineHeight: 1.7,
+                      lineHeight: 1.6,
                       margin: 0,
                     }}
                   >
@@ -281,40 +281,40 @@ export function EventModal({ event, onClose }) {
             <div>
               <h3 
                 style={{
-                  fontSize: '16px',
+                  fontSize: '14px',
                   fontWeight: 700,
                   color: '#ffffff',
-                  marginBottom: '16px',
+                  marginBottom: '12px',
                   display: 'flex',
                   alignItems: 'center',
-                  gap: '8px',
+                  gap: '6px',
                 }}
               >
                 📋 Rules & Guidelines
               </h3>
               <div 
                 style={{
-                  padding: '24px',
-                  borderRadius: '12px',
+                  padding: '18px',
+                  borderRadius: '10px',
                   backgroundColor: 'rgba(40, 40, 70, 0.5)',
                   border: '1px solid rgba(255, 255, 255, 0.08)',
                 }}
               >
                 {event.rules && event.rules.length > 0 ? (
-                  <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                  <ul style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '10px' }}>
                     {event.rules.map((rule, index) => (
                       <li 
                         key={index} 
                         style={{
-                          fontSize: '15px',
+                          fontSize: '14px',
                           color: 'rgba(255, 255, 255, 0.85)',
-                          lineHeight: 1.7,
+                          lineHeight: 1.6,
                           display: 'flex',
                           alignItems: 'flex-start',
-                          gap: '12px',
+                          gap: '10px',
                         }}
                       >
-                        <span style={{ fontSize: '20px', fontWeight: 700, color: '#f97316', flexShrink: 0, marginTop: '2px' }}>
+                        <span style={{ fontSize: '18px', fontWeight: 700, color: '#f97316', flexShrink: 0, marginTop: '1px' }}>
                           •
                         </span>
                         <span style={{ flex: 1 }}>{rule}</span>
@@ -322,7 +322,7 @@ export function EventModal({ event, onClose }) {
                     ))}
                   </ul>
                 ) : (
-                  <p style={{ fontSize: '15px', color: 'rgba(255, 255, 255, 0.5)', fontStyle: 'italic', margin: 0 }}>
+                  <p style={{ fontSize: '14px', color: 'rgba(255, 255, 255, 0.5)', fontStyle: 'italic', margin: 0 }}>
                     Coming Soon
                   </p>
                 )}
@@ -333,7 +333,7 @@ export function EventModal({ event, onClose }) {
           {/* Footer - Registration Button */}
           <div 
             style={{
-              padding: 'clamp(20px, 4vw, 24px) clamp(24px, 5vw, 32px) clamp(24px, 5vw, 32px)',
+              padding: 'clamp(16px, 3vw, 20px) clamp(20px, 4vw, 28px)',
               borderTop: '1px solid rgba(255, 255, 255, 0.08)',
               background: 'rgba(0, 0, 0, 0.2)',
             }}
@@ -345,25 +345,25 @@ export function EventModal({ event, onClose }) {
               style={{
                 display: 'block',
                 width: '100%',
-                padding: '16px 24px',
-                borderRadius: '12px',
+                padding: '14px 20px',
+                borderRadius: '10px',
                 fontWeight: 700,
-                fontSize: '18px',
+                fontSize: '16px',
                 textAlign: 'center',
                 color: '#ffffff',
                 textDecoration: 'none',
                 background: 'linear-gradient(135deg, #f97316, #ea580c)',
-                boxShadow: '0 10px 25px -5px rgba(249, 115, 22, 0.5)',
+                boxShadow: '0 8px 20px -5px rgba(249, 115, 22, 0.5)',
                 transition: 'all 0.2s ease',
                 cursor: 'pointer',
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-2px)';
-                e.currentTarget.style.boxShadow = '0 15px 35px -5px rgba(249, 115, 22, 0.6)';
+                e.currentTarget.style.boxShadow = '0 12px 28px -5px rgba(249, 115, 22, 0.6)';
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 10px 25px -5px rgba(249, 115, 22, 0.5)';
+                e.currentTarget.style.boxShadow = '0 8px 20px -5px rgba(249, 115, 22, 0.5)';
               }}
             >
               🎮 Register for {event.name}

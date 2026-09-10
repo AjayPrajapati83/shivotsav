@@ -63,7 +63,7 @@ export function HeroContent() {
       </div>
 
       {/* Managed by ESSSQUBE EVENTS */}
-      <p className="text-sm sm:text-base text-slate-400 mb-16 tracking-wider" style={{ marginTop: '20px' }}>
+      <p className="text-sm sm:text-base text-slate-400 mb-24 tracking-wider">
         Managed by{' '}
         <a
           href="https://www.essqube.in/"
@@ -76,7 +76,7 @@ export function HeroContent() {
       </p>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60">
+      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60">
         <span className="text-xs text-slate-400 tracking-widest uppercase">Scroll</span>
         <ChevronDown className="w-5 h-5 text-gold-400 animate-bounce" />
       </div>

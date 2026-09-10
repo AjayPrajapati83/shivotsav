@@ -117,39 +117,39 @@ export function Footer() {
         </div>
 
         {/* Developer & Management Badges */}
-        <div style={{ marginTop: '40px', marginBottom: '40px' }} className="w-full flex flex-col items-center gap-6">
+        <div className="w-full flex flex-col items-center gap-6 mt-10 mb-10 px-4">
           {/* Managed by Badge */}
-          <div className="glass-effect rounded-full border border-gold-400/30 hover:border-gold-400/60 transition-all hover:scale-105" style={{ padding: '16px 40px' }}>
+          <div className="glass-effect rounded-full border border-gold-400/30 hover:border-gold-400/60 transition-all hover:scale-105 w-full max-w-md px-4 sm:px-8 py-3 sm:py-4">
             <a
               href="https://www.essqube.in/"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-4 text-white/90 hover:text-gold-400 transition-colors"
+              className="flex items-center justify-center gap-2 sm:gap-4 text-white/90 hover:text-gold-400 transition-colors"
             >
-              <span className="text-white/70 text-base whitespace-nowrap font-medium">Managed by</span>
-              <div className="w-10 h-10 rounded-full bg-white/10 p-1.5 flex items-center justify-center shrink-0">
+              <span className="text-white/70 text-sm sm:text-base font-medium">Managed by</span>
+              <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-white/10 p-1 sm:p-1.5 flex items-center justify-center shrink-0">
                 <img
                   src="/ESSQUBE_LOGO.png"
                   alt="Esssqube Logo"
                   className="w-full h-full object-contain rounded-full"
                 />
               </div>
-              <span className="gradient-text-gold font-bold text-lg whitespace-nowrap">ESSSQUBE EVENTS</span>
+              <span className="gradient-text-gold font-bold text-base sm:text-lg">ESSSQUBE EVENTS</span>
             </a>
           </div>
 
           {/* Developed by Badge */}
-          <div className="glass-effect rounded-full border border-red-400/30 hover:border-red-400/60 transition-all hover:scale-105" style={{ padding: '16px 40px' }}>
+          <div className="glass-effect rounded-full border border-red-400/30 hover:border-red-400/60 transition-all hover:scale-105 w-full max-w-md px-4 sm:px-8 py-3 sm:py-4">
             <a
               href="https://www.linkedin.com/in/ajayprajapatii"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 text-white/90 hover:text-red-400 transition-colors"
+              className="flex items-center justify-center gap-1.5 sm:gap-3 text-white/90 hover:text-red-400 transition-colors flex-wrap"
             >
-              <span className="text-white/70 text-base whitespace-nowrap font-medium">Developed with</span>
-              <Heart className="w-5 h-5 text-red-500 fill-red-500 animate-pulse shrink-0" />
-              <span className="text-white/70 text-base whitespace-nowrap font-medium">by</span>
-              <span className="font-bold text-lg bg-gradient-to-r from-red-400 to-pink-400 bg-clip-text text-transparent whitespace-nowrap">Ajay Prajapati</span>
+              <span className="text-white/70 text-sm sm:text-base font-medium">Developed with</span>
+              <Heart className="w-4 h-4 sm:w-5 sm:h-5 text-red-500 fill-red-500 animate-pulse shrink-0" />
+              <span className="text-white/70 text-sm sm:text-base font-medium">by</span>
+              <span className="font-bold text-base sm:text-lg bg-gradient-to-r from-red-400 to-pink-400 bg-clip-text text-transparent">Ajay Prajapati</span>
             </a>
           </div>
         </div>
