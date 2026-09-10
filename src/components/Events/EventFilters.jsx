@@ -6,21 +6,21 @@ export function EventFilters({ activeTier, onTierChange }) {
   ];
 
   return (
-    <div className="flex justify-center mb-12">
-      <div className="filter-scroll inline-flex gap-3 overflow-x-auto px-4 py-2">
+    <div className="flex justify-center mb-12 px-2">
+      <div className="filter-scroll inline-flex gap-2 sm:gap-3 overflow-x-auto py-2 max-w-full">
         {tiers.map((tier) => {
           const isActive = activeTier === tier.id;
           return (
             <button
               key={tier.id}
               onClick={() => onTierChange(tier.id)}
-              className="cursor-pointer transition-all duration-300 rounded-2xl whitespace-nowrap"
+              className="cursor-pointer transition-all duration-300 rounded-2xl whitespace-nowrap flex-shrink-0"
               style={{
-                padding: '0.75rem 1.75rem',
+                padding: '0.625rem 1.25rem',
                 fontWeight: 700,
-                fontSize: '0.9375rem',
+                fontSize: '0.8125rem',
                 fontFamily: 'var(--font-heading)',
-                letterSpacing: '0.05em',
+                letterSpacing: '0.03em',
                 background: isActive
                   ? 'linear-gradient(135deg, var(--color-gold-500), var(--color-gold-700))'
                   : 'rgba(17, 24, 39, 0.6)',
@@ -34,13 +34,13 @@ export function EventFilters({ activeTier, onTierChange }) {
                 transform: isActive ? 'scale(1.05)' : 'scale(1)',
               }}
             >
-              <span className="mr-2">{tier.icon}</span>
+              <span className="mr-1.5">{tier.icon}</span>
               {tier.label}
               <span
-                className="ml-2 text-xs px-2 py-0.5 rounded-full"
+                className="ml-1.5 text-xs px-1.5 py-0.5 rounded-full"
                 style={{
                   background: isActive ? 'rgba(6,9,18,0.25)' : 'rgba(255,255,255,0.08)',
-                  fontSize: '0.7rem',
+                  fontSize: '0.65rem',
                   fontWeight: 800,
                 }}
               >

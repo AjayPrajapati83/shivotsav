@@ -18,7 +18,7 @@ export function Team() {
       <div className="w-full flex flex-col items-center justify-center relative z-10 px-4 sm:px-6">
         <div className="w-full max-w-7xl flex flex-col items-center">
           {/* Section Header */}
-          <div data-reveal className="w-full mb-16">
+          <div data-reveal className="w-full" style={{ marginBottom: '5rem' }}>
             <SectionHeading subtitle="The warriors behind the legends">
               Council of the Gods
             </SectionHeading>

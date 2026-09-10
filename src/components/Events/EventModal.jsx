@@ -407,7 +407,7 @@ export function EventModal({ event, onClose }) {
               {/* Close button for mobile */}
               <button
                 onClick={handleClose}
-                className="md:hidden w-full mb-3"
+                className="md:hidden w-full"
                 style={{
                   padding: '13px 20px',
                   borderRadius: '10px',
@@ -419,6 +419,7 @@ export function EventModal({ event, onClose }) {
                   border: '1px solid rgba(255, 255, 255, 0.1)',
                   cursor: 'pointer',
                   transition: 'all 0.2s ease',
+                  marginBottom: '8px',
                 }}
               >
                 Close

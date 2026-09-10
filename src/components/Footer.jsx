@@ -72,8 +72,8 @@ export function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div className="flex flex-col items-center">
-            <h3 className="text-xl font-bold text-white mb-6 text-center">Quick Links</h3>
+          <div className="flex flex-col items-start md:items-center">
+            <h3 className="text-xl font-bold text-white mb-6">Quick Links</h3>
             <ul className="space-y-4 text-left">
               {QUICK_LINKS.map((link) => (
                 <li key={link.name}>
@@ -91,8 +91,8 @@ export function Footer() {
           </div>
 
           {/* Contact */}
-          <div className="flex flex-col items-center">
-            <h3 style={{ marginBottom: '10px' }} className="text-xl font-bold text-white text-center">Contact Us</h3>
+          <div className="flex flex-col items-start md:items-center">
+            <h3 style={{ marginBottom: '10px' }} className="text-xl font-bold text-white">Contact Us</h3>
             <ul style={{ display: 'flex', flexDirection: 'column', gap: '10px' }} className="text-left">
               <li className="flex items-start gap-3 text-white/60">
                 <Mail className="w-5 h-5 text-gold-400 mt-1 shrink-0" />
@@ -117,7 +117,7 @@ export function Footer() {
         </div>
 
         {/* Developer & Management Badges */}
-        <div className="w-full flex flex-col items-center gap-5 mt-16 mb-12 px-6">
+        <div className="w-full flex flex-col items-center gap-5 px-6" style={{ marginTop: '64px', marginBottom: '64px' }}>
           {/* Managed by Badge */}
           <div className="glass-effect rounded-full border border-gold-400/30 hover:border-gold-400/60 transition-all hover:scale-105" style={{ width: '280px', padding: '14px 20px' }}>
             <a
@@ -155,7 +155,7 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/10 pt-8 mt-4">
+        <div className="border-t border-white/10" style={{ paddingTop: '32px', marginTop: '16px' }}>
           <div className="flex flex-col items-center text-white/50 text-sm">
             <p>© 2026 All rights reserved to Ajay Prajapati.</p>
           </div>

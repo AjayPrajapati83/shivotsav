@@ -31,11 +31,11 @@ export function HeroContent() {
       />
 
       {/* Theme Name & Tagline */}
-      <div className="flex flex-col items-center mb-8">
-        <h1 className="font-display text-xl sm:text-2xl md:text-3xl lg:text-4xl text-gold-400 tracking-[0.2em] uppercase whitespace-nowrap">
+      <div className="flex flex-col items-center mb-8 px-4">
+        <h1 className="font-display text-gold-400 uppercase whitespace-nowrap drop-shadow-md" style={{ fontSize: 'clamp(14px, 4.5vw, 36px)', letterSpacing: '0.15em', lineHeight: '1.2' }}>
           Mythos: The Legends Awaken
         </h1>
-        <p className="font-display text-[10px] sm:text-xs md:text-sm text-gold-400 mt-3 tracking-[0.3em] uppercase font-bold opacity-90 drop-shadow-sm">
+        <p className="font-display text-gold-400 mt-3 uppercase font-bold opacity-90 drop-shadow-sm whitespace-nowrap" style={{ fontSize: 'clamp(8px, 2vw, 14px)', letterSpacing: '0.25em' }}>
           The Realm Awaits Its Heroes
         </p>
       </div>

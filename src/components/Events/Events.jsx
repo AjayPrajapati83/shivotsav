@@ -40,7 +40,7 @@ export function Events() {
             </SectionHeading>
           </div>
 
-          <div data-reveal className="w-full" style={{ marginTop: '5rem', marginBottom: '8rem' }}>
+          <div data-reveal className="w-full" style={{ marginTop: '6rem', marginBottom: '8rem' }}>
             <EventFilters activeTier={activeTier} onTierChange={setActiveTier} />
           </div>
 

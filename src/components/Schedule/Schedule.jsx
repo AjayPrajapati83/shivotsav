@@ -27,7 +27,7 @@ export function Schedule() {
           </div>
 
           {/* Day tabs — bigger, bolder */}
-          <div data-reveal className="flex justify-center gap-4 mb-12 w-full">
+          <div data-reveal className="flex justify-center gap-4 w-full" style={{ marginTop: '3rem', marginBottom: '3rem' }}>
             {days.map((day) => {
               const isActive = activeDay === day.id;
               return (
