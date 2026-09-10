@@ -55,6 +55,11 @@ export const sponsors = [
     name: 'Variety Stationers',
     logo: '/SPONSORS/VARIETY SATTIONERS.png',
   },
+  {
+    id: 'vayera',
+    name: 'Vayera',
+    logo: '/SPONSORS/VAYERA.png',
+  },
 ];
 
 export default sponsors;

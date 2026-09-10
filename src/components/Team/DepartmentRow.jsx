@@ -1,20 +1,17 @@
+import { memo } from 'react';
 import { User } from 'lucide-react';
 
-export function DepartmentRow({ department }) {
+export const DepartmentRow = memo(function DepartmentRow({ department }) {
   return (
-    <div className="w-full" style={{ marginBottom: '80px' }}>
+    <div className="w-full">
       {/* Department Title */}
       <h3 
-        className="text-3xl md:text-4xl font-bold text-center gradient-text" 
+        className="text-2xl md:text-3xl font-bold text-center mb-12"
         style={{ 
-          marginBottom: '48px',
-          textShadow: '0 0 40px rgba(255, 87, 34, 0.6), 0 0 80px rgba(212, 168, 67, 0.4)',
-          background: 'linear-gradient(135deg, #FF5722 0%, #D4A843 50%, #FF5722 100%)',
-          backgroundSize: '200% auto',
+          background: 'linear-gradient(135deg, #FF5722 0%, #D4A843 100%)',
           WebkitBackgroundClip: 'text',
           WebkitTextFillColor: 'transparent',
           backgroundClip: 'text',
-          animation: 'shimmer 3s ease-in-out infinite',
           letterSpacing: '0.05em',
           textTransform: 'uppercase'
         }}
@@ -24,7 +21,7 @@ export function DepartmentRow({ department }) {
 
       {/* Members Grid - Centered */}
       <div className="flex justify-center w-full">
-        <div className={`flex flex-wrap justify-center gap-8 ${
+        <div className={`flex flex-wrap justify-center gap-6 md:gap-8 ${
           department.members.length === 4 
             ? 'max-w-7xl' 
             : department.members.length === 3 
@@ -40,33 +37,53 @@ export function DepartmentRow({ department }) {
 
             return (
               <div
-                key={i}
-                className="group flex flex-col items-center hover:-translate-y-2 transition-transform duration-300"
+                key={`${department.department}-${i}`}
+                className="group flex flex-col items-center"
+                style={{
+                  willChange: 'transform',
+                  transition: 'transform 0.3s ease',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.transform = 'translateY(-8px)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.transform = 'translateY(0)';
+                }}
               >
                 {/* Image Card */}
-                <div className="glass-effect-strong rounded-2xl p-8 border-2 border-white/20 hover:border-fire-500/60 transition-colors duration-300 relative overflow-hidden" style={{ marginBottom: '8px' }}>
+                <div 
+                  className="rounded-2xl p-6 md:p-8 border-2 border-white/20 mb-3 relative overflow-hidden"
+                  style={{
+                    background: 'rgba(17, 24, 39, 0.6)',
+                    backdropFilter: 'blur(10px)',
+                    transition: 'border-color 0.3s ease',
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = 'rgba(255, 87, 34, 0.6)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.2)';
+                  }}
+                >
                   {/* Team Member Image */}
-                  <div className="w-56 h-56 rounded-xl bg-gradient-to-br from-fire-500/30 to-water-500/30 flex items-center justify-center relative overflow-hidden">
+                  <div className="w-48 h-48 md:w-56 md:h-56 rounded-xl bg-gradient-to-br from-fire-500/20 to-water-500/20 flex items-center justify-center relative overflow-hidden">
                     <img
                       src={imagePath}
                       alt={member.name}
-                      className="w-full h-full object-cover rounded-xl"
+                      className="w-full h-full object-cover rounded-xl absolute inset-0"
                       loading="lazy"
+                      decoding="async"
                       onError={(e) => {
-                        // Fallback to placeholder if image doesn't exist
                         e.target.style.display = 'none';
                       }}
                     />
                     {/* Placeholder Icon */}
-                    <User className="w-28 h-28 text-white/40 absolute" />
-
-                    {/* Static Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-fire-500/20 to-transparent opacity-40 pointer-events-none" />
+                    <User className="w-20 h-20 md:w-28 md:h-28 text-white/30" style={{ zIndex: 1 }} />
                   </div>
                 </div>
 
                 {/* Member Name */}
-                <p className="text-lg font-semibold text-white text-center">
+                <p className="text-base md:text-lg font-semibold text-white text-center">
                   {member.name}
                 </p>
               </div>
@@ -76,6 +93,6 @@ export function DepartmentRow({ department }) {
       </div>
     </div>
   );
-}
+});
 
 export default DepartmentRow;

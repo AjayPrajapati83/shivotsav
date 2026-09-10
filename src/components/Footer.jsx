@@ -117,7 +117,7 @@ export function Footer() {
         </div>
 
         {/* Developer & Management Badges */}
-        <div className="w-full flex flex-col items-center gap-5 px-6" style={{ marginTop: '64px', marginBottom: '64px' }}>
+        <div className="w-full flex flex-col items-center gap-5 px-6" style={{ marginTop: '48px', marginBottom: '48px' }}>
           {/* Managed by Badge */}
           <div className="glass-effect rounded-full border border-gold-400/30 hover:border-gold-400/60 transition-all hover:scale-105" style={{ width: '280px', padding: '14px 20px' }}>
             <a
@@ -155,8 +155,8 @@ export function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="border-t border-white/10" style={{ paddingTop: '32px', marginTop: '16px' }}>
-          <div className="flex flex-col items-center text-white/50 text-sm">
+        <div className="border-t border-white/10" style={{ paddingTop: '32px', paddingBottom: '32px', marginTop: '16px' }}>
+          <div className="flex items-center justify-center text-white/50 text-sm">
             <p>© 2026 All rights reserved to Ajay Prajapati.</p>
           </div>
         </div>

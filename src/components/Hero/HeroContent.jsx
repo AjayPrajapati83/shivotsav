@@ -75,8 +75,8 @@ export function HeroContent() {
         </a>
       </p>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60">
+      {/* Scroll indicator - Mobile only */}
+      <div className="md:hidden absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-60">
         <ChevronDown className="w-5 h-5 text-gold-400 animate-bounce" />
       </div>
     </div>

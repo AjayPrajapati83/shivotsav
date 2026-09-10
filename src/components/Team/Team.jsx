@@ -25,7 +25,7 @@ export function Team() {
           </div>
 
           {/* Department Categories */}
-          <div className="space-y-64 relative z-10 w-full">
+          <div className="space-y-24 md:space-y-32 relative z-10 w-full">
             {team.map((dept) => (
               <div key={dept.department} data-reveal>
                 <DepartmentRow department={dept} />
