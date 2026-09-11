@@ -149,8 +149,8 @@ export const events = [
     venue: null,
   },
   {
-    id: 'mr-mrs-shivotsav',
-    name: 'Mr. & Mrs. Shivotsav',
+    id: 'mr-miss-shivotsav',
+    name: 'Mr. & Miss. Shivotsav',
     themeName: 'Kailash Ke Ardhangini',
     tier: 'flagship',
     category: 'Informals',
