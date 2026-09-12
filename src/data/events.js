@@ -21,6 +21,8 @@ export const events = [
     price: null,
     description: 'Synchronize your moves and set the stage ablaze in this ultimate crew battle.',
     rules: [
+      'Group of 4 to 12 members.',
+      '2 slots per college/institution.',
       'Time limit: 4 to 6 minutes per performance.',
       'Back tracks are allowed.',
       'Music to be given in pen drive in MP3 format during registration.',
@@ -50,6 +52,8 @@ export const events = [
     price: null,
     description: 'Strut down the runway and showcase breathtaking style in the ultimate couture clash.',
     rules: [
+      'Group of 8 to 12 members.',
+      '1 slot per college/institution.',
       'Time limit: 8 to 10 minutes per performance.',
       'Music to be given in pen drive in MP3 format during registration.',
       'Carry a backup pen drive.',
@@ -77,6 +81,8 @@ export const events = [
     price: null,
     description: 'Turn trash into treasure by creating infectious beats from everyday scrap.',
     rules: [
+      'Group of 4 to 8 members.',
+      '1 slot per college/institution.',
       'Time limit: 3 to 6 minutes per performance.',
       'Backing tracks and pre-recorded music are not allowed. The performance must primarily showcase live music created using junk instruments.',
       'Participants must carry and arrange their own instruments and required equipment.',
@@ -102,6 +108,7 @@ export const events = [
     price: null,
     description: 'Bring your raw energy and sickest moves to dominate the underground dance floor.',
     rules: [
+      '2 slots per college/institution.',
       'This is a solo dance competition consisting of two rounds.',
       'Round 1: Each participant will perform a 2-minute solo performance on a song of their choice.',
       'The song for Round 1 must be submitted in MP3 format on a pen drive during registration. Participants must carry a backup pen drive.',
@@ -131,6 +138,7 @@ export const events = [
     price: null,
     description: 'Drop the hardest bars and roast your rivals in an epic lyrical showdown.',
     rules: [
+      '2 slots per college/institution.',
       'This is a solo event consisting of two rounds.',
       'Each participant will be allotted 3-4 minutes, including setup and performance.',
       'Round 1: Participants will perform a solo original rap verse or song.',
@@ -159,8 +167,8 @@ export const events = [
     price: null,
     description: 'Flaunt your charm, intellect, and grace to win the ultimate crown of the fest.',
     rules: [
-      'This is a team event. Each team must consist of one male and one female participant.',
       '1 boy & 1 girl compulsory from one CC.',
+      'This is a team event. Each team must consist of one male and one female participant.',
       'Participants can be a part of only one team.',
       'The event will consist of 3 rounds: Round 1: Ramp Walk + Introduction, Round 2: Talent Round, Round 3: IQ Round.',
       'The Talent Round will have a maximum time limit of 3 minutes.',
@@ -190,8 +198,9 @@ export const events = [
     price: null,
     description: 'Stitch together your imagination and redefine modern mythic couture.',
     rules: [
-      'Participants can be part of only one team.',
       '2 participants + 1 model.',
+      '2 slots per college/institution.',
+      'Participants can be part of only one team.',
       'Theme: Open.',
       'Time limit: 120 minutes, including designing and preparation.',
       'Participants must design and create an outfit for a model using waste/recycled materials such as jute bags, broken CDs, straws, paper, newspapers, or similar materials.',
@@ -221,6 +230,7 @@ export const events = [
     description: 'Pass the pen and weave an epic tale with your team before time runs out.',
     rules: [
       '3 members in one team.',
+      '2 slots per college/institution.',
       'The topic will be given on the spot by the organizing team.',
       'The language of the writing must be English only.',
       'Each participant will get 15 minutes to write their part of the story.',
@@ -249,6 +259,7 @@ export const events = [
     description: 'Decode cryptic clues and race against time to unearth the hidden bounty.',
     rules: [
       '2 members per team.',
+      '1 slot per college/institution.',
       'Participants must report to the venue at least 5 minutes before the scheduled start time.',
       'Teams must follow the clues provided and locate the final treasure within the allotted time.',
       'The first team to find the treasure within the given time limit will be declared the winner.',
@@ -291,11 +302,12 @@ export const events = [
     tier: 'flagship',
     category: 'Gaming & Sports',
     categoryIcon: '🎮',
-    isPaid: false,
-    price: null,
+    isPaid: true,
+    price: 400,
     description: 'Drop in, loot up, and survive the ultimate battle royale to claim your chicken dinner.',
     rules: [
       '4 members per team.',
+      'Unlimited slots per college/institution.',
       'Finger sleeves are allowed.',
       'Air triggers, external triggers, or any other external assisting devices are strictly prohibited.',
       'Hacking, cheating, scripts, exploits, or any form of game manipulation will lead to disqualification.',
@@ -325,6 +337,7 @@ export const events = [
     description: 'Smash boundaries and take crucial wickets in this high-octane battle of bat and ball.',
     rules: [
       '5 + 1 member team.',
+      '2 teams per college/institution.',
       'A maximum of 32 teams will be allowed to participate on a first-come, first-served basis.',
       'Entry Fee: ₹500 per team.',
       'The match format, overs, and other playing rules will be declared on the spot by the organizing team.',
@@ -353,6 +366,7 @@ export const events = [
     description: 'Dribble, pass, and strike your way to glory on the legendary football pitch.',
     rules: [
       '5 + 1 member team.',
+      '2 teams per college/institution.',
       'A maximum of 32 teams will be allowed to participate on a first-come, first-served basis.',
       'Entry Fee: ₹500 per team.',
       'Match format, duration, and other playing rules will be declared on the spot by the organizing team.',
@@ -376,11 +390,12 @@ export const events = [
     tier: 'flagship',
     category: 'Gaming & Sports',
     categoryIcon: '💪',
-    isPaid: false,
-    price: null,
+    isPaid: true,
+    price: 500,
     description: 'Dig your heels in and pull with all your might in this raw test of strength.',
     rules: [
       '6 members per team.',
+      '1 slot per college/institution.',
       'Each team must consist of the number of participants specified by the organizing team.',
       'Participants must report to the venue before the scheduled start time.',
       'The match format and number of rounds will be declared by the organizing team on the spot.',
@@ -409,6 +424,8 @@ export const events = [
     price: null,
     description: 'Become the game piece and navigate a life-sized board of luck and strategy.',
     rules: [
+      '4 members per team.',
+      '2 teams per college/institution.',
       'Each team must consist of 4 players.',
       'To enter a token into the game, the player must roll a six.',
       'Players must follow the standard movement and gameplay rules of Ludo as instructed by the organizers.',
@@ -439,6 +456,7 @@ export const events = [
     price: null,
     description: 'Own the spotlight and mesmerize the crowd with your solo rhythmic moves.',
     rules: [
+      '2 slots per college/institution.',
       'Time limit: 2 to 3 minutes per performance.',
       'Back tracks are allowed.',
       'Music to be given in pen drive in MP3 format during registration.',
@@ -465,6 +483,7 @@ export const events = [
     price: null,
     description: 'Hit the perfect notes and enchant the audience with your pristine vocal prowess.',
     rules: [
+      '2 slots per college/institution.',
       'Time limit: 2 to 3 minutes per performance.',
       'Back tracks are allowed.',
       'Music to be given in pen drive in MP3 format during registration.',
@@ -517,6 +536,8 @@ export const events = [
     price: null,
     description: 'Transform plain bags into vibrant works of art with your creative brushstrokes.',
     rules: [
+      'Time Duration: 2 hours.',
+      '2 slots per college/institution.',
       'This is an individual event. Each participant will compete independently.',
       'Thick paper bags will be provided by the organizing team. Participants must use only the bag provided.',
       'The specific theme/topic for the bag painting will be disclosed on the day of the event.',
@@ -545,8 +566,10 @@ export const events = [
     price: null,
     description: 'Paint beautiful, intricate henna designs celebrating tradition and ancient art.',
     rules: [
-      'This is an individual event. Each participant will compete independently.',
       '1 participant + 1 model.',
+      'Time Duration: 2 hours.',
+      '3 slots per college/institution.',
+      'This is an individual event. Each participant will compete independently.',
       'The specific Mehendi topic/design prompt will be disclosed on the day of the event.',
       'Participants must create an original Mehendi design based on the given theme and topic.',
       'Participants must bring their own Mehendi cones and required materials.',
@@ -575,6 +598,7 @@ export const events = [
     description: 'Speak from the soul and captivate listeners with your eloquent poetic rhythm.',
     rules: [
       'Solo event.',
+      '2 slots per college/institution.',
       'The topic for the poem will be provided on the day of the event.',
       'Participants will be given 1 hour to write their original poem based on the given topic.',
       'The poem must be written and recited in English.',
@@ -603,6 +627,7 @@ export const events = [
     price: null,
     description: 'Just a Minute! Test your fluency and wit without hesitation or repetition.',
     rules: [
+      '2 slots per college/institution.',
       'This is an individual event, conducted in a group format with 5-6 participants per table.',
       'A topic will be given by the judge on the spot.',
       'The judge will select the first speaker, who must speak continuously on the given topic.',
@@ -633,6 +658,7 @@ export const events = [
     description: 'Whip up mouth-watering delicacies using only your creativity and raw ingredients.',
     rules: [
       '2 members per team.',
+      '2 slots per college/institution.',
       'Time limit: 1.5 hours.',
       'Topic: Chaat and Mocktails.',
       'The time limit will include preparation and garnishing.',
@@ -662,6 +688,8 @@ export const events = [
     price: null,
     description: 'Capture a sequence of stunning frames that tell an unforgettable visual tale.',
     rules: [
+      'Solo event.',
+      '2 slots per college/institution.',
       'The theme for the storyboard will be revealed on the day of the event.',
       'Participants must create a visual story through photography based on the given theme.',
       'The storyboard must consist of a maximum of 12-15 photographs.',
@@ -689,6 +717,8 @@ export const events = [
     price: null,
     description: 'Film, edit, and create viral-worthy short videos that capture the fest spirit.',
     rules: [
+      'Solo event.',
+      '2 slots per college/institution.',
       'Participants must create a 40-90 second reel based on the given theme.',
       'Only one reel per participant is allowed.',
       'Participants have complete creative freedom in terms of concept, presentation, editing, and storytelling.',
@@ -718,6 +748,7 @@ export const events = [
     description: 'Pitch your groundbreaking startup ideas to relentless investors and secure funding.',
     rules: [
       '3 members per group.',
+      '2 slots per college/institution.',
       'Participants can be part of only one team.',
       'The entire pitch must be presented in English only.',
       'Each team must present an original business idea in the form of a pitch.',
@@ -747,6 +778,7 @@ export const events = [
     description: 'Build your dream cricket franchise by outsmarting rivals in an intense bidding war.',
     rules: [
       '2 members per team.',
+      '1 slot per college/institution.',
       'Each team will be required to build a squad of 11 players through the auction.',
       'A bidding time limit of 1 minute per round will be provided.',
       'Teams will be judged based on the points scored according to the auction criteria.',
@@ -769,11 +801,12 @@ export const events = [
     tier: 'large',
     category: 'Gaming & Sports',
     categoryIcon: '🎯',
-    isPaid: false,
-    price: null,
+    isPaid: true,
+    price: 50,
     description: 'Pocket the coins with absolute precision and geometry in this classic showdown.',
     rules: [
       'Solo event.',
+      '2 slots per college/institution.',
       'Each player will be given a fixed time limit for the match, as specified by the organizers.',
       'Players must use the provided carrom board and equipment only.',
       'Players must follow the standard rules of carrom and play fairly throughout the match.',
@@ -797,11 +830,12 @@ export const events = [
     tier: 'large',
     category: 'Gaming & Sports',
     categoryIcon: '♟️',
-    isPaid: false,
-    price: null,
+    isPaid: true,
+    price: 50,
     description: 'Anticipate moves and trap the enemy king in a brutal battle of pure intellect.',
     rules: [
       'Solo event.',
+      '2 slots per college/institution.',
       'Each player will be given a maximum of 10 minutes for the game.',
       'A warning will be given for the first foul.',
       'Two fouls will result in a default/loss.',
@@ -831,9 +865,10 @@ export const events = [
     price: null,
     description: 'Ink your creativity and design stunning temporary art on a human canvas.',
     rules: [
-      'This is an individual event. Each participant will compete independently.',
       '1 participant + 1 model.',
       'Time duration: 1.5 hours.',
+      '3 slots per college/institution.',
+      'This is an individual event. Each participant will compete independently.',
       'The specific tattoo-making topic will be disclosed on the day of the event.',
       'Participants must create their tattoo based on the given topic and theme.',
       'Only colour pens will be permitted for creating the tattoo. No other tattooing tools or materials will be allowed.',
@@ -861,8 +896,9 @@ export const events = [
     price: null,
     description: 'Blend bold colors and mythical concepts to create a masterpiece on canvas.',
     rules: [
-      'This is an individual event. Each participant will compete independently.',
       'Time Duration: 2 hours.',
+      '3 slots per college/institution.',
+      'This is an individual event. Each participant will compete independently.',
       'The specific topic for the poster will be disclosed on the day of the event.',
       'Participants must create an original poster based on the given theme and topic.',
       'All types of colours and colouring materials are allowed.',
@@ -891,9 +927,10 @@ export const events = [
     price: null,
     description: 'Transform faces into mythical creatures with vibrant colors and artistic strokes.',
     rules: [
-      'This is an individual event. Each participant will compete independently.',
       '1 participant + 1 model.',
       'Time Duration: 2 hours.',
+      '3 slots per college/institution.',
+      'This is an individual event. Each participant will compete independently.',
       'The specific topic for face painting will be disclosed on the day of the event.',
       'Participants must create an original face painting design based on the given theme and topic.',
       'All types of colours and colouring materials are allowed.',
@@ -922,6 +959,7 @@ export const events = [
     price: null,
     description: 'Defend your stance and dismantle opposing arguments with undeniable eloquence.',
     rules: [
+      '2 slots per college/institution.',
       'This is a 1 vs 1 debate competition.',
       'The topic will be announced on the spot by the judges.',
       'A toss will be conducted before the debate. The winner of the toss will get the opportunity to choose whether to speak For or Against the topic.',
@@ -950,6 +988,7 @@ export const events = [
     price: null,
     description: 'Buzz in fast and prove your ultimate trivia supremacy across diverse topics.',
     rules: [
+      '2 slots per college/institution.',
       'This is a solo event. Each participant will compete individually.',
       'The quiz will be based on Mythology and will consist of two rounds.',
       'Round 1 - Paper & Pen: Participants will receive a question paper and must tick the correct answer.',
@@ -974,10 +1013,11 @@ export const events = [
     tier: 'small',
     category: 'Gaming & Sports',
     categoryIcon: '⚽',
-    isPaid: false,
-    price: null,
+    isPaid: true,
+    price: 50,
     description: 'Control football legends and score stunning virtual goals on the digital pitch.',
     rules: [
+      '2 slots per college/institution.',
       'Participants will compete individually.',
       'Only authentic/official teams are allowed. Dream Teams are not permitted.',
       'Each match will have a duration of 6 minutes.',
@@ -1002,10 +1042,12 @@ export const events = [
     tier: 'small',
     category: 'Gaming & Sports',
     categoryIcon: '👑',
-    isPaid: false,
-    price: null,
+    isPaid: true,
+    price: 50,
     description: 'Deploy your troops and destroy enemy towers in this fast-paced strategy duel.',
     rules: [
+      'Solo event.',
+      '2 slots per college/institution.',
       'Each player gets one chance per match. If a player loses, they will be eliminated from the competition.',
       'The competition will follow an elimination format until the final two players remain.',
       'The final match will be Best of 3. The player who wins 2 out of 3 rounds will be declared the final winner.',
