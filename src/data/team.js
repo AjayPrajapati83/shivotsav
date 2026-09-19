@@ -80,8 +80,7 @@ export const team = [
   {
     department: 'Social Media',
     members: [
-      { name: 'Sanvi Vyavahare', role: 'Head', photo: null },
-      { name: 'Samrat Kaushik', role: 'Assistant', photo: null },
+      { name: 'Samrat Kaushik', role: 'Head', photo: null },
     ],
   },
 ];
