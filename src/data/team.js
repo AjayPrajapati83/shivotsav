@@ -2,7 +2,7 @@ export const team = [
   {
     department: 'General Secretary – Commerce',
     members: [
-      { name: 'Nidhi Bohra', role: 'Head', photo: '/TEAM/Nidhi Bohra.jpg' },
+      { name: 'Nidhi Bohra', role: 'Head', photo: null },
       { name: 'Mansi Sharma', role: 'Assistant', photo: '/TEAM/Mansi Sharma.jpg' },
     ],
   },
@@ -45,15 +45,15 @@ export const team = [
   {
     department: 'Informals',
     members: [
-      { name: 'Keemmaya Jamwal', role: 'Head', photo: '/TEAM/Keemmaya Jamwal.jpg' },
-      { name: 'Yashika Kumar', role: 'Assistant', photo: '/TEAM/Yashika Kumar.jpg' },
+      { name: 'Keemmaya Jamwal', role: 'Head', photo: '/TEAM/Keemmaya Jamwal.png' },
+      { name: 'Yashika Kumar', role: 'Assistant', photo: '/TEAM/Yashika Kumar.png' },
     ],
   },
   {
     department: 'Gaming',
     members: [
       { name: 'Dheairya Jethva', role: 'Head', photo: null },
-      { name: 'Sibtain Khan', role: 'Assistant', photo: null },
+      { name: 'Sibtain Khan', role: 'Assistant', photo: '/TEAM/Sibtain Khan.png' },
     ],
   },
   {
@@ -67,7 +67,7 @@ export const team = [
     department: 'Registration',
     members: [
       { name: 'Ayush Ranjan', role: 'Head', photo: '/TEAM/Ayush Ranjan.jpg' },
-      { name: 'Disha Pandey', role: 'Assistant', photo: null },
+      { name: 'Disha Pandey', role: 'Assistant', photo: '/TEAM/Disha Pandey.png' },
     ],
   },
   {
