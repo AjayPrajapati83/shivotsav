@@ -32,10 +32,6 @@ export const DepartmentRow = memo(function DepartmentRow({ department }) {
             : 'max-w-3xl'
         }`}>
           {department.members.map((member, i) => {
-            // Convert member name to image filename format
-            const imageName = member.name.toLowerCase().replace(/\s+/g, '_');
-            const imagePath = `/team/${imageName}.jpg`;
-
             return (
               <div
                 key={`${department.department}-${i}`}
@@ -68,18 +64,24 @@ export const DepartmentRow = memo(function DepartmentRow({ department }) {
                 >
                   {/* Team Member Image */}
                   <div className="w-48 h-48 md:w-56 md:h-56 rounded-xl bg-gradient-to-br from-fire-500/20 to-water-500/20 flex items-center justify-center relative overflow-hidden">
-                    <img
-                      src={imagePath}
-                      alt={member.name}
-                      className="w-full h-full object-cover rounded-xl absolute inset-0"
-                      loading="lazy"
-                      decoding="async"
-                      onError={(e) => {
-                        e.target.style.display = 'none';
-                      }}
-                    />
+                    {member.photo ? (
+                      <img
+                        src={member.photo}
+                        alt={member.name}
+                        className="w-full h-full object-cover rounded-xl absolute inset-0"
+                        loading="lazy"
+                        decoding="async"
+                        onError={(e) => {
+                          e.target.style.display = 'none';
+                          e.target.nextElementSibling.style.display = 'block';
+                        }}
+                      />
+                    ) : null}
                     {/* Placeholder Icon */}
-                    <User className="w-20 h-20 md:w-28 md:h-28 text-white/30" style={{ zIndex: 1 }} />
+                    <User 
+                      className="w-20 h-20 md:w-28 md:h-28 text-white/30" 
+                      style={{ zIndex: 1, display: member.photo ? 'none' : 'block' }} 
+                    />
                   </div>
                 </div>
 
