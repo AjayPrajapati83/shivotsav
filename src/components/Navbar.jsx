@@ -89,7 +89,8 @@ export function Navbar() {
 
             {/* Mobile Menu Button */}
             <button
-              className="md:hidden p-2 mr-2 text-slate-300 hover:text-gold-400 transition-colors"
+              className="md:hidden p-2 text-slate-300 hover:text-gold-400 transition-colors"
+              style={{ marginRight: '8px' }}
               onClick={() => setMenuOpen(!menuOpen)}
               aria-label="Toggle menu"
             >
