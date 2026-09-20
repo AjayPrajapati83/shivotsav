@@ -20,6 +20,9 @@ export function EventModal({ event, onClose }) {
       document.body.style.overflow = 'hidden';
       document.body.style.width = '100%';
       
+      // Push history state when modal opens
+      window.history.pushState({ modalOpen: true }, '');
+      
       // Trigger animation
       setTimeout(() => setIsVisible(true), 10);
       
@@ -34,6 +37,22 @@ export function EventModal({ event, onClose }) {
       };
     }
   }, [event]);
+
+  // Handle browser back button
+  useEffect(() => {
+    if (!event) return;
+
+    const handlePopState = (e) => {
+      // Close modal when back button is pressed
+      handleClose();
+    };
+
+    window.addEventListener('popstate', handlePopState);
+    
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+    };
+  }, [event, onClose]);
 
   // Enable wheel scrolling on modal content
   useEffect(() => {
