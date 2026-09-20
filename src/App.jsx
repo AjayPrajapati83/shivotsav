@@ -1,6 +1,7 @@
 import Navbar from './components/Navbar';
 import { Hero } from './components/Hero/Hero';
 import About from './components/About';
+import { Podium } from './components/Podium';
 import { Events } from './components/Events/Events';
 import { Schedule } from './components/Schedule/Schedule';
 import { Team } from './components/Team/Team';
@@ -17,6 +18,7 @@ function App() {
       <Navbar />
       <Hero />
       <About />
+      <Podium />
       <Events />
       <Schedule />
       <Team />
