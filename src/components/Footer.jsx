@@ -27,10 +27,10 @@ export function Footer() {
   return (
     <footer className="relative z-10 bg-gradient-to-b from-[#0a0e27] to-[#050713] border-t border-white/10">
       <div style={{ paddingTop: '50px' }} className="container mx-auto px-8 sm:px-12 md:px-16 pb-20">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8 px-2 sm:px-0">
           {/* About */}
-          <div className="flex flex-col items-center md:items-start">
-            <div className="text-left w-full md:px-0">
+          <div className="flex flex-col items-start md:items-start">
+            <div className="text-left w-full">
               <div className="flex items-center gap-3 mb-2">
                 <img
                   src="/SHIVOTSAV_LOGO.png"
@@ -72,7 +72,7 @@ export function Footer() {
           </div>
 
           {/* Quick Links */}
-          <div className="flex flex-col items-start md:items-center w-full md:px-0">
+          <div className="flex flex-col items-start md:items-center w-full">
             <h3 className="text-xl font-bold text-white mb-6">Quick Links</h3>
             <ul className="space-y-4 text-left">
               {QUICK_LINKS.map((link) => (
@@ -91,7 +91,7 @@ export function Footer() {
           </div>
 
           {/* Contact */}
-          <div className="flex flex-col items-start md:items-center w-full md:px-0">
+          <div className="flex flex-col items-start md:items-center w-full">
             <h3 style={{ marginBottom: '10px' }} className="text-xl font-bold text-white">Contact Us</h3>
             <ul style={{ display: 'flex', flexDirection: 'column', gap: '10px' }} className="text-left">
               <li className="flex items-start gap-3 text-white/60">
