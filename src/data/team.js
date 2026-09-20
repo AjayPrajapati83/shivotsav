@@ -2,7 +2,7 @@ export const team = [
   {
     department: 'General Secretary – Commerce',
     members: [
-      { name: 'Nidhi Bohra', role: 'Head', photo: null },
+      { name: 'Nidhi Bohra', role: 'Head', photo: '/TEAM/Nidhi Bohra.png' },
       { name: 'Mansi Sharma', role: 'Assistant', photo: '/TEAM/Mansi Sharma.jpg' },
     ],
   },
@@ -52,7 +52,7 @@ export const team = [
   {
     department: 'Gaming',
     members: [
-      { name: 'Dheairya Jethva', role: 'Head', photo: null },
+      { name: 'Dheairya Jethva', role: 'Head', photo: '/TEAM/Dheairya Jethva.png' },
       { name: 'Sibtain Khan', role: 'Assistant', photo: '/TEAM/Sibtain Khan.png' },
     ],
   },
