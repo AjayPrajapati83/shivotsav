@@ -232,18 +232,21 @@ export function Podium() {
           </div>
 
           {/* Spacer to ensure proper separation */}
-          <div className="w-full h-10 sm:h-12 md:h-16" />
+          <div className="w-full" style={{ height: 'clamp(40px, 8vw, 80px)' }} />
 
           {/* Trophy Categories Section - Complete */}
           <div className="w-full clear-both" style={{ position: 'relative', zIndex: 1 }}>
             <h3
               data-reveal
-              className="text-center font-heading gradient-text-gold mb-4 sm:mb-5 md:mb-6 tracking-wide"
-              style={{ fontSize: 'clamp(20px, 5vw, 36px)' }}
+              className="text-center font-heading gradient-text-gold tracking-wide"
+              style={{ 
+                fontSize: 'clamp(20px, 5vw, 36px)',
+                marginBottom: 'clamp(16px, 4vw, 24px)'
+              }}
             >
               Championship Trophies
             </h3>
-            <div className="w-full flex justify-center mb-12 sm:mb-16 md:mb-20">
+            <div className="w-full flex justify-center" style={{ marginBottom: 'clamp(32px, 6vw, 48px)' }}>
               <p
                 data-reveal
                 className="text-center text-slate-400 px-4"
