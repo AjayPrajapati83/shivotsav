@@ -170,8 +170,7 @@ export function Podium() {
           <div
             ref={counterRef}
             data-reveal
-            className="mt-16 sm:mt-20 relative group"
-            style={{ paddingTop: '5px' }}
+            className="mt-16 sm:mt-20 relative group w-full max-w-2xl mx-auto px-4 sm:px-6"
           >
             <div
               className="absolute inset-0 blur-2xl opacity-50 group-hover:opacity-70 transition-opacity duration-700"
@@ -180,24 +179,25 @@ export function Podium() {
               }}
             />
             <div
-              className="relative glass-card px-8 sm:px-16 py-8 sm:py-10 text-center overflow-hidden"
+              className="relative glass-card px-6 sm:px-12 md:px-16 py-10 sm:py-12 md:py-14 text-center"
               style={{
                 borderWidth: '2px',
                 borderImage: 'linear-gradient(90deg, transparent, rgba(251,191,36,0.5), transparent) 1',
+                borderRadius: '16px',
               }}
             >
-              <Sparkles className="absolute top-4 left-4 w-6 h-6 text-gold-400 opacity-60 animate-pulse" />
-              <Sparkles className="absolute bottom-4 right-4 w-6 h-6 text-gold-400 opacity-60 animate-pulse" style={{ animationDelay: '1s' }} />
+              <Sparkles className="absolute top-4 left-4 w-5 h-5 sm:w-6 sm:h-6 text-gold-400 opacity-60 animate-pulse" />
+              <Sparkles className="absolute bottom-4 right-4 w-5 h-5 sm:w-6 sm:h-6 text-gold-400 opacity-60 animate-pulse" style={{ animationDelay: '1s' }} />
               
-              <p className="text-gold-400/70 text-sm sm:text-base tracking-[0.3em] uppercase font-bold mb-3 font-display">
+              <p className="text-gold-400/70 text-xs sm:text-sm md:text-base tracking-[0.25em] sm:tracking-[0.3em] uppercase font-bold mb-4 sm:mb-5 font-display leading-relaxed">
                 Total Prize Pool
               </p>
-              <div className="font-display text-5xl sm:text-6xl md:text-7xl font-bold gradient-text-gold mb-2">
+              <div className="font-display text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold gradient-text-gold mb-3 sm:mb-4 leading-tight">
                 {isVisible && (
                   <AnimatedNumber target={75000} prefix="₹" suffix="+" duration={2000} />
                 )}
               </div>
-              <p className="text-slate-400 text-xs sm:text-sm tracking-wider">
+              <p className="text-slate-400 text-xs sm:text-sm md:text-base tracking-wider leading-relaxed">
                 In Cash Prizes & Trophies
               </p>
             </div>

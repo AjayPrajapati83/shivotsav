@@ -41,10 +41,10 @@ export function HeroContent() {
       </div>
 
       {/* Date & Venue pills */}
-      <div style={{ marginTop: '5px', marginBottom: '20px' }} className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 sm:gap-6 w-full px-4">
+      <div style={{ marginTop: '5px', marginBottom: '20px' }} className="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-4 sm:gap-6 w-full px-6 sm:px-4">
         <div 
           className="flex flex-shrink-0 items-center justify-center gap-3 rounded-full text-slate-100 shadow-lg backdrop-blur-md bg-white/5 border border-gold-500/30 w-max max-w-full transition-colors hover:bg-white/10"
-          style={{ padding: '1rem 2.5rem' }}
+          style={{ padding: '1rem 2rem' }}
         >
           <Calendar className="w-5 h-5 text-gold-400 flex-shrink-0 drop-shadow-md" />
           <span className="font-bold tracking-widest text-xs sm:text-sm uppercase whitespace-nowrap relative top-[1px] drop-shadow-md">
@@ -53,7 +53,7 @@ export function HeroContent() {
         </div>
         <div 
           className="flex flex-shrink-0 items-center justify-center gap-3 rounded-full text-slate-100 shadow-lg backdrop-blur-md bg-white/5 border border-gold-500/30 w-max max-w-full transition-colors hover:bg-white/10"
-          style={{ padding: '1rem 2.5rem' }}
+          style={{ padding: '1rem 1.75rem' }}
         >
           <MapPin className="w-5 h-5 text-gold-400 flex-shrink-0 drop-shadow-md" />
           <span className="font-bold tracking-widest text-xs sm:text-sm uppercase whitespace-nowrap relative top-[1px] drop-shadow-md">
