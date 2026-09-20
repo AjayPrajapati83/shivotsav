@@ -2,8 +2,8 @@
 // Fields left as null/empty will be filled when data is supplied.
 
 const FORM_URLS = {
-  free: '#', // Google Form URL for free events — to be supplied
-  paid: '#', // Google Form URL for paid events — to be supplied
+  free: 'https://forms.gle/QPVEtDNMgR8jD7DW7', // Google Form URL for free events
+  paid: 'https://forms.gle/bv7qHtLCT1LD6xGdA', // Google Form URL for paid events
 };
 
 export const events = [
