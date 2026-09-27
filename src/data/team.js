@@ -10,7 +10,7 @@ export const team = [
     department: 'General Secretary – Science',
     members: [
       { name: 'Sanvi Vyavahare', role: 'Head', photo: '/TEAM/Sanvi Vyavahare.png' },
-      { name: 'Shravani Parab', role: 'Assistant', photo: '/TEAM/Shravani Parab.jpg' },
+      { name: 'Shravani Parab', role: 'Assistant', photo: '/TEAM/Shravani Parab.png' },
     ],
   },
   {
