@@ -407,8 +407,8 @@ export const events = [
       "Referees' decisions will be final and binding.",
       'Additional rules and instructions will be disclosed on the spot.'
     ],
-    formType: 'free',
-    formUrl: FORM_URLS.free,
+    formType: 'paid',
+    formUrl: FORM_URLS.paid,
     day: null,
     time: null,
     venue: null,
@@ -817,8 +817,8 @@ export const events = [
       "Referee's decision will be final and binding.",
       'Additional rules and instructions will be disclosed on the spot.'
     ],
-    formType: 'free',
-    formUrl: FORM_URLS.free,
+    formType: 'paid',
+    formUrl: FORM_URLS.paid,
     day: null,
     time: null,
     venue: null,
@@ -844,8 +844,8 @@ export const events = [
       "Arbiter's decision will be final and binding.",
       'Additional rules and instructions will be disclosed on the spot.'
     ],
-    formType: 'free',
-    formUrl: FORM_URLS.free,
+    formType: 'paid',
+    formUrl: FORM_URLS.paid,
     day: null,
     time: null,
     venue: null,
@@ -1056,8 +1056,8 @@ export const events = [
       'Late arrival beyond the time limit specified by the organizers may result in disqualification.',
       "Judges'/organizers' decisions will be final and binding."
     ],
-    formType: 'free',
-    formUrl: FORM_URLS.free,
+    formType: 'paid',
+    formUrl: FORM_URLS.paid,
     day: null,
     time: null,
     venue: null,

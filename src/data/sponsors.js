@@ -11,6 +11,11 @@ export const sponsors = [
     logo: '/SPONSORS/COMPUSKILL.png',
   },
   {
+    id: 'detachnol',
+    name: 'Detachnol',
+    logo: '/SPONSORS/Detachnol.png',
+  },
+  {
     id: 'edulearn',
     name: 'Edulearn',
     logo: '/SPONSORS/EDULEARN.png',
@@ -31,9 +36,24 @@ export const sponsors = [
     logo: '/SPONSORS/GLOW&FIT.png',
   },
   {
+    id: 'hindustan-pencils',
+    name: 'Hindustan Pencils',
+    logo: '/SPONSORS/Hindustan Pencils.png',
+  },
+  {
+    id: 'krupa',
+    name: 'Krupa',
+    logo: '/SPONSORS/Krupa.jpeg',
+  },
+  {
     id: 'la-pinoz-pizza',
     name: "La Pino'z Pizza",
     logo: "/SPONSORS/LA PINO'Z PIZZA.png",
+  },
+  {
+    id: 'manch',
+    name: 'Manch',
+    logo: '/SPONSORS/Manch.jpeg',
   },
   {
     id: 'mojo-bar',
@@ -44,6 +64,11 @@ export const sponsors = [
     id: 'onfees',
     name: 'OnFees',
     logo: '/SPONSORS/ONFEES.png',
+  },
+  {
+    id: 'pagal-soda',
+    name: 'Pagal Soda',
+    logo: '/SPONSORS/Pagal Soda.png',
   },
   {
     id: 'pinnacle',

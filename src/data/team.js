@@ -9,15 +9,15 @@ export const team = [
   {
     department: 'General Secretary – Science',
     members: [
-      { name: 'Sanvi Vyavahare', role: 'Head', photo: null },
+      { name: 'Sanvi Vyavahare', role: 'Head', photo: '/TEAM/Sanvi Vyavahare.png' },
       { name: 'Shravani Parab', role: 'Assistant', photo: '/TEAM/Shravani Parab.jpg' },
     ],
   },
   {
     department: 'CL',
     members: [
-      { name: 'Tirth Bhanushali', role: 'Head', photo: '/TEAM/Tirth Bhanudhali.jpg' },
-      { name: 'Pranit Wagh', role: 'Assistant', photo: null },
+      { name: 'Tirth Bhanushali', role: 'Head', photo: '/TEAM/Tirth Bhanushali.png' },
+      { name: 'Pranit Wagh', role: 'Assistant', photo: '/TEAM/Pranit Wagh.png' },
       { name: 'Shrishti Singh', role: 'Assistant', photo: '/TEAM/Shrishti Singh.jpg' },
     ],
   },
@@ -31,8 +31,8 @@ export const team = [
   {
     department: 'Fine Arts',
     members: [
-      { name: 'Hinal Solanki', role: 'Head', photo: null },
-      { name: 'Nandini Patidar', role: 'Assistant', photo: null },
+      { name: 'Hinal Solanki', role: 'Head', photo: '/TEAM/Hinal Solanki.png' },
+      { name: 'Nandini Patidar', role: 'Assistant', photo: '/TEAM/Nandini Patidar.png' },
     ],
   },
   {
@@ -73,14 +73,14 @@ export const team = [
   {
     department: 'Security',
     members: [
-      { name: 'Ritika Sinha', role: 'Head', photo: null },
+      { name: 'Ritika Sinha', role: 'Head', photo: '/TEAM/Ritika Sinha.png' },
       { name: 'Sanjana Biswas', role: 'Assistant', photo: '/TEAM/Sanjana Biswas.jpg' },
     ],
   },
   {
     department: 'Social Media',
     members: [
-      { name: 'Samrat Kaushik', role: 'Head', photo: null },
+      { name: 'Samrat Kaushik', role: 'Head', photo: '/TEAM/Samrat Kaushik.png' },
     ],
   },
 ];
