@@ -24,7 +24,7 @@ export const team = [
   {
     department: 'Performing Arts',
     members: [
-      { name: 'Khushi Bhutada', role: 'Head', photo: '/TEAM/Khushi Bhutada.jpg' },
+      { name: 'Vanshika Chauhan', role: 'Head', photo: '/TEAM/Vanshika Chauhan.png' },
       { name: 'Saee Churi', role: 'Assistant', photo: '/TEAM/Saee Churi.jpg' },
     ],
   },
@@ -81,6 +81,7 @@ export const team = [
     department: 'Social Media',
     members: [
       { name: 'Samrat Kaushik', role: 'Head', photo: '/TEAM/Samrat Kaushik.png' },
+      { name: 'Veer Panchal', role: 'Assistant', photo: '/TEAM/Veer Panchal.png' },
     ],
   },
 ];
