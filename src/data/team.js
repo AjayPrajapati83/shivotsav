@@ -26,6 +26,7 @@ export const team = [
     members: [
       { name: 'Vanshika Chauhan', role: 'Head', photo: '/TEAM/Vanshika Chauhan.png' },
       { name: 'Saee Churi', role: 'Assistant', photo: '/TEAM/Saee Churi.jpg' },
+      { name: 'Veer Panchal', role: 'Assistant', photo: '/TEAM/Veer Panchal.png' },
     ],
   },
   {
@@ -81,7 +82,6 @@ export const team = [
     department: 'Social Media',
     members: [
       { name: 'Samrat Kaushik', role: 'Head', photo: '/TEAM/Samrat Kaushik.png' },
-      { name: 'Veer Panchal', role: 'Assistant', photo: '/TEAM/Veer Panchal.png' },
     ],
   },
 ];

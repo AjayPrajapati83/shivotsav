@@ -21,6 +21,16 @@ export const sponsors = [
     logo: '/SPONSORS/EDULEARN.png',
   },
   {
+    id: 'edugenius',
+    name: 'Edugenius',
+    logo: '/SPONSORS/Edugenius.jpeg',
+  },
+  {
+    id: 'e4u',
+    name: 'E4U',
+    logo: '/SPONSORS/E4U.png',
+  },
+  {
     id: 'flavor-fusion',
     name: 'Flavor Fusion',
     logo: '/SPONSORS/FLAVOR FUSION.png',
@@ -54,6 +64,11 @@ export const sponsors = [
     id: 'manch',
     name: 'Manch',
     logo: '/SPONSORS/Manch.jpeg',
+  },
+  {
+    id: 'nisarg',
+    name: 'Nisarg',
+    logo: '/SPONSORS/Nisarg.jpeg',
   },
   {
     id: 'mojo-bar',
