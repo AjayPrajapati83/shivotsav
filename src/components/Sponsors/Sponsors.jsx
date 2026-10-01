@@ -36,7 +36,7 @@ export function Sponsors() {
                   }}
                 >
                   {/* Logo Container - Optimized for performance */}
-                  <div className="w-full h-full flex items-center justify-center">
+                  <div className="w-full h-full flex items-center justify-center p-2">
                     <img
                       src={sponsor.logo}
                       alt={sponsor.name}
@@ -44,8 +44,8 @@ export function Sponsors() {
                       loading="lazy"
                       decoding="async"
                       style={{
-                        maxWidth: '100%',
-                        maxHeight: '100%',
+                        maxWidth: '90%',
+                        maxHeight: '90%',
                         willChange: 'auto',
                       }}
                     />
