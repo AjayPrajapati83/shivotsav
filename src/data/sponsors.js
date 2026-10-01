@@ -76,6 +76,11 @@ export const sponsors = [
     logo: '/SPONSORS/MOJO BAR.png',
   },
   {
+    id: 'motion-vasai',
+    name: 'Motion Vasai',
+    logo: '/SPONSORS/Motion Vasai.png',
+  },
+  {
     id: 'onfees',
     name: 'OnFees',
     logo: '/SPONSORS/ONFEES.png',
