@@ -60,7 +60,7 @@ export const team = [
   {
     department: 'Sports',
     members: [
-      { name: 'Zaid Khan', role: 'Head', photo: '/TEAM/Zaid Khan.jpg' },
+      { name: 'Zaid Khan', role: 'Head', photo: '/TEAM/Zaid Khan.jpeg' },
       { name: 'Rudra Singh', role: 'Assistant', photo: '/TEAM/Rudra Singh.jpg' },
     ],
   },
