@@ -22,7 +22,7 @@ export const events = [
     description: 'Synchronize your moves and set the stage ablaze in this ultimate crew battle.',
     rules: [
       'Group of 4 to 12 members.',
-      '2 slots per college/institution.',
+      '1 slots per college/institution.',
       'Time limit: 4 to 6 minutes per performance.',
       'Back tracks are allowed.',
       'Music to be given in pen drive in MP3 format during registration.',
@@ -108,7 +108,7 @@ export const events = [
     price: null,
     description: 'Bring your raw energy and sickest moves to dominate the underground dance floor.',
     rules: [
-      '2 slots per college/institution.',
+      '1 slots per college/institution.',
       'This is a solo dance competition consisting of two rounds.',
       'Round 1: Each participant will perform a 2-minute solo performance on a song of their choice.',
       'The song for Round 1 must be submitted in MP3 format on a pen drive during registration. Participants must carry a backup pen drive.',
@@ -303,7 +303,7 @@ export const events = [
     category: 'Gaming & Sports',
     categoryIcon: '🎮',
     isPaid: true,
-    price: 400,
+    price: 300,
     description: 'Drop in, loot up, and survive the ultimate battle royale to claim your chicken dinner.',
     rules: [
       '4 members per team.',
@@ -319,8 +319,8 @@ export const events = [
       'Any additional rules or instructions will be disclosed by the organizers before the event.',
       "Organizers' decisions will be final and binding."
     ],
-    formType: 'free',
-    formUrl: FORM_URLS.free,
+    formType: 'custom',
+    formUrl: 'https://forms.gle/V14XFVGc4LiBtJNc7',
     day: 1,
     time: null,
     venue: null,
@@ -511,6 +511,7 @@ export const events = [
     price: null,
     description: 'Let your fingers do the talking and weave pure magic through strings and keys.',
     rules: [
+      '2 slots per college/institution.',
       'Setup Time: 2 minutes per performance.',
       'Time limit: 2 to 3 minutes per performance.',
       'Back tracks are not allowed.',

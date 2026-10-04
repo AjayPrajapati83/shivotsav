@@ -11,9 +11,9 @@ export const sponsors = [
     logo: '/SPONSORS/COMPUSKILL.png',
   },
   {
-    id: 'detachnol',
-    name: 'Detachnol',
-    logo: '/SPONSORS/Detachnol.png',
+    id: 'pace',
+    name: 'Pace',
+    logo: '/SPONSORS/PACE.jpeg',
   },
   {
     id: 'edulearn',
