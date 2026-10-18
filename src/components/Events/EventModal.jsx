@@ -1,11 +1,13 @@
 import { useEffect, useRef, useState } from 'react';
-import { X } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import { X, ExternalLink } from 'lucide-react';
 
 export function EventModal({ event, onClose }) {
   const modalRef = useRef(null);
   const scrollPositionRef = useRef(0);
   const contentRef = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
+  const navigate = useNavigate();
 
   // Body scroll lock
   useEffect(() => {
@@ -423,6 +425,38 @@ export function EventModal({ event, onClose }) {
                 background: 'rgba(0, 0, 0, 0.15)',
               }}
             >
+              {/* BGMI Special - Full Page Link */}
+              {event.id === 'bgmi' && (
+                <button
+                  onClick={() => {
+                    handleClose();
+                    setTimeout(() => navigate('/bgmi'), 300);
+                  }}
+                  className="w-full"
+                  style={{
+                    padding: '13px 20px',
+                    borderRadius: '10px',
+                    fontWeight: 600,
+                    fontSize: '15px',
+                    textAlign: 'center',
+                    color: '#ffffff',
+                    background: 'linear-gradient(135deg, rgba(139, 92, 246, 0.9), rgba(124, 58, 237, 0.9))',
+                    border: '1px solid rgba(139, 92, 246, 0.3)',
+                    cursor: 'pointer',
+                    transition: 'all 0.2s ease',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    gap: '8px',
+                    boxShadow: '0 4px 16px -2px rgba(139, 92, 246, 0.4)',
+                    marginBottom: '12px',
+                  }}
+                >
+                  <ExternalLink className="w-4 h-4" />
+                  View Full Tournament Page
+                </button>
+              )}
+              
               {/* Close button for mobile */}
               <button
                 onClick={handleClose}

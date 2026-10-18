@@ -1,30 +1,19 @@
-import Navbar from './components/Navbar';
-import { Hero } from './components/Hero/Hero';
-import About from './components/About';
-import { Podium } from './components/Podium';
-import { Events } from './components/Events/Events';
-import { Schedule } from './components/Schedule/Schedule';
-import { Team } from './components/Team/Team';
-import { Sponsors } from './components/Sponsors/Sponsors';
-import Footer from './components/Footer';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useSmoothScroll } from './hooks/useSmoothScroll';
+import HomePage from './pages/HomePage';
+import BGMIPage from './pages/BGMIPage';
 
 function App() {
   // Initialize Lenis smooth scroll + GSAP ScrollTrigger sync
   useSmoothScroll();
 
   return (
-    <main className="relative min-h-screen overflow-hidden">
-      <Navbar />
-      <Hero />
-      <About />
-      <Podium />
-      <Events />
-      <Schedule />
-      <Team />
-      <Sponsors />
-      <Footer />
-    </main>
+    <Router>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/bgmi" element={<BGMIPage />} />
+      </Routes>
+    </Router>
   );
 }
 
