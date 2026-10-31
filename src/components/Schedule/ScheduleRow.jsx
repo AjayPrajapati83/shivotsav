@@ -203,5 +203,3 @@ function ScheduleRowComponent({ event }) {
 // Memoize component to prevent unnecessary re-renders
 export const ScheduleRow = memo(ScheduleRowComponent);
 export default ScheduleRow;
-
-export default ScheduleRow;
