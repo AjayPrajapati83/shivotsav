@@ -1,49 +1,40 @@
 import { getCategoryColor, getTierLabel } from '../../data/events';
 import { Clock, MapPin } from 'lucide-react';
+import { memo } from 'react';
 
-export function ScheduleRow({ event }) {
+// Memoized tier styles to prevent recalculation
+const TIER_STYLES = {
+  flagship: {
+    bg: 'linear-gradient(135deg, rgba(234, 179, 8, 0.15), rgba(202, 138, 4, 0.1))',
+    border: '1px solid rgba(234, 179, 8, 0.4)',
+    color: '#fbbf24',
+    icon: '⚡'
+  },
+  large: {
+    bg: 'linear-gradient(135deg, rgba(249, 115, 22, 0.15), rgba(234, 88, 12, 0.1))',
+    border: '1px solid rgba(249, 115, 22, 0.4)',
+    color: '#fb923c',
+    icon: '🔥'
+  },
+  small: {
+    bg: 'linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(124, 58, 237, 0.1))',
+    border: '1px solid rgba(139, 92, 246, 0.4)',
+    color: '#a78bfa',
+    icon: '✨'
+  }
+};
+
+function ScheduleRowComponent({ event }) {
   const catColor = getCategoryColor(event.category);
-  
-  // Get tier styling
-  const getTierStyle = (tier) => {
-    switch(tier) {
-      case 'flagship':
-        return {
-          bg: 'linear-gradient(135deg, rgba(234, 179, 8, 0.15), rgba(202, 138, 4, 0.1))',
-          border: '1px solid rgba(234, 179, 8, 0.4)',
-          color: '#fbbf24',
-          icon: '⚡'
-        };
-      case 'large':
-        return {
-          bg: 'linear-gradient(135deg, rgba(249, 115, 22, 0.15), rgba(234, 88, 12, 0.1))',
-          border: '1px solid rgba(249, 115, 22, 0.4)',
-          color: '#fb923c',
-          icon: '🔥'
-        };
-      case 'small':
-        return {
-          bg: 'linear-gradient(135deg, rgba(139, 92, 246, 0.15), rgba(124, 58, 237, 0.1))',
-          border: '1px solid rgba(139, 92, 246, 0.4)',
-          color: '#a78bfa',
-          icon: '✨'
-        };
-      default:
-        return {
-          bg: 'rgba(51, 65, 85, 0.3)',
-          border: '1px solid rgba(148, 163, 184, 0.3)',
-          color: '#cbd5e1',
-          icon: '🎯'
-        };
-    }
+  const tierStyle = TIER_STYLES[event.tier] || {
+    bg: 'rgba(51, 65, 85, 0.3)',
+    border: '1px solid rgba(148, 163, 184, 0.3)',
+    color: '#cbd5e1',
+    icon: '🎯'
   };
 
-  const tierStyle = getTierStyle(event.tier);
-
   return (
-    <div
-      className="glass-card group !rounded-xl"
-    >
+    <div className="glass-card group !rounded-xl">
       {/* Desktop Layout */}
       <div className="hidden sm:flex items-center gap-4 p-6" style={{ minHeight: '72px' }}>
         {/* Category icon */}
@@ -95,49 +86,111 @@ export function ScheduleRow({ event }) {
         </span>
       </div>
 
-      {/* Mobile Layout */}
-      <div className="sm:hidden p-5">
-        {/* Header: Event Name and Tier Badge */}
-        <div className="flex items-start justify-between gap-3 mb-3">
-          <div className="flex-grow min-w-0">
+      {/* Mobile Layout - Fixed spacing and text overflow */}
+      <div className="sm:hidden" style={{ padding: '20px' }}>
+        {/* Header Row */}
+        <div className="flex items-start gap-3 mb-4">
+          {/* Event Name - Allow wrapping, no truncation */}
+          <div style={{ flex: '1', minWidth: '0' }}>
             <h4
-              className="text-base font-bold text-white leading-tight mb-1.5"
-              style={{ fontFamily: 'var(--font-heading)' }}
+              className="font-bold text-white mb-2"
+              style={{ 
+                fontFamily: 'var(--font-heading)',
+                fontSize: '15px',
+                lineHeight: '1.4',
+                wordBreak: 'break-word'
+              }}
             >
               {event.name}
             </h4>
-            <p className="text-xs italic leading-tight" style={{ color: `${catColor}cc` }}>
+            <p 
+              className="italic" 
+              style={{ 
+                color: `${catColor}cc`,
+                fontSize: '13px',
+                lineHeight: '1.3',
+                wordBreak: 'break-word'
+              }}
+            >
               {event.themeName}
             </p>
           </div>
           
-          {/* Tier Badge */}
+          {/* Tier Badge - Fixed size */}
           <span
-            className="inline-flex items-center gap-1 text-xs font-bold uppercase tracking-wider px-2.5 py-1.5 rounded-lg shrink-0"
+            className="font-bold uppercase shrink-0"
             style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '4px',
+              padding: '6px 10px',
+              borderRadius: '8px',
               background: tierStyle.bg,
               color: tierStyle.color,
               border: tierStyle.border,
-              backdropFilter: 'blur(8px)',
+              fontSize: '10px',
+              letterSpacing: '0.5px',
+              whiteSpace: 'nowrap',
             }}
           >
-            <span style={{ fontSize: '0.75rem' }}>{tierStyle.icon}</span>
-            <span style={{ fontSize: '0.65rem' }}>{getTierLabel(event.tier)}</span>
+            <span style={{ fontSize: '12px' }}>{tierStyle.icon}</span>
+            <span>{getTierLabel(event.tier)}</span>
           </span>
         </div>
         
-        {/* Time & Venue Section */}
-        <div className="flex items-center gap-4 pt-3 mt-3" style={{ borderTop: '1px solid rgba(148, 163, 184, 0.15)' }}>
-          <div className="flex items-center gap-2 flex-1">
-            <Clock className="w-4 h-4 shrink-0" style={{ color: '#fbbf24' }} />
-            <span className="text-sm font-medium text-slate-300">
+        {/* Time & Venue Row - Better spacing */}
+        <div 
+          style={{ 
+            display: 'grid',
+            gridTemplateColumns: '1fr 1fr',
+            gap: '16px',
+            paddingTop: '16px',
+            marginTop: '16px',
+            borderTop: '1px solid rgba(148, 163, 184, 0.15)'
+          }}
+        >
+          {/* Time */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <Clock 
+              className="shrink-0" 
+              style={{ 
+                width: '16px', 
+                height: '16px',
+                color: '#fbbf24' 
+              }} 
+            />
+            <span 
+              className="font-medium text-slate-300"
+              style={{ 
+                fontSize: '13px',
+                lineHeight: '1.2',
+                wordBreak: 'break-word'
+              }}
+            >
               {event.time || 'TBA'}
             </span>
           </div>
           
-          <div className="flex items-center gap-2 flex-1">
-            <MapPin className="w-4 h-4 shrink-0" style={{ color: '#fb923c' }} />
-            <span className="text-sm font-medium text-slate-300">
+          {/* Venue */}
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <MapPin 
+              className="shrink-0" 
+              style={{ 
+                width: '16px', 
+                height: '16px',
+                color: '#fb923c' 
+              }} 
+            />
+            <span 
+              className="font-medium text-slate-300"
+              style={{ 
+                fontSize: '13px',
+                lineHeight: '1.2',
+                wordBreak: 'break-word',
+                overflow: 'hidden',
+                textOverflow: 'ellipsis'
+              }}
+            >
               {event.venue || 'TBA'}
             </span>
           </div>
@@ -146,5 +199,9 @@ export function ScheduleRow({ event }) {
     </div>
   );
 }
+
+// Memoize component to prevent unnecessary re-renders
+export const ScheduleRow = memo(ScheduleRowComponent);
+export default ScheduleRow;
 
 export default ScheduleRow;
