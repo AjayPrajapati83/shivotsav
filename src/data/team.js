@@ -19,6 +19,7 @@ export const team = [
       { name: 'Tirth Bhanushali', role: 'Head', photo: '/TEAM/Tirth Bhanushali.png' },
       { name: 'Pranit Wagh', role: 'Assistant', photo: '/TEAM/Pranit Wagh.png' },
       { name: 'Shrishti Singh', role: 'Assistant', photo: '/TEAM/Shrishti Singh.jpg' },
+      { name: 'Nirali Mantri', role: 'Assistant', photo: '/TEAM/Nirali Mantri.png' },
     ],
   },
   {
@@ -82,6 +83,7 @@ export const team = [
     department: 'Social Media',
     members: [
       { name: 'Samrat Kaushik', role: 'Head', photo: '/TEAM/Samrat Kaushik.png' },
+      { name: 'Abhaya Singh', role: 'Assistant', photo: '/TEAM/Abhaya Singh.png' },
     ],
   },
 ];
