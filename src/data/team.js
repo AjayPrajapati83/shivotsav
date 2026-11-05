@@ -83,7 +83,7 @@ export const team = [
     department: 'Social Media',
     members: [
       { name: 'Samrat Kaushik', role: 'Head', photo: '/TEAM/Samrat Kaushik.png' },
-      { name: 'Abhaya Singh', role: 'Assistant', photo: '/TEAM/Abhaya Singh.png' },
+      { name: 'Abhay Singh', role: 'Assistant', photo: '/TEAM/Abhaya Singh.png' },
     ],
   },
 ];
